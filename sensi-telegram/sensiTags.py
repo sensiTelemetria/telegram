@@ -1,4 +1,4 @@
-from settings import dataBaseDjangoDir
+from settings import dataBaseDjangoDir, dataBaseSensiDir
 from ruuvitag_sensor.ruuvi import RuuviTagSensor
 import os
 import datetime
@@ -16,7 +16,7 @@ class SensiTags:
         cursor.execute("""select * from tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
-        msgTags = ", aqui estão as informações sobre as SensiTags.\n\n "
+        msgTags = ", aqui estão as informações sobre as suas SensiTags.\n\n "
         for tag in query:
             msgTags = msgTags + '*->* MAC: ' + tag[1] + '\n'
             msgTags = msgTags + '     Localização: ' + tag[2] + '\n\n'
@@ -53,6 +53,18 @@ class SensiTags:
 
                 vetor = [TUPLA, ]
                 print("VETOR : ", vetor)
+
+                try:
+                    conn = sqlite3.connect(dataBaseSensiDir)
+                    cursor = conn.cursor()
+                    cursor.executemany("""
+                        INSERT INTO reg (MAC, BATERIA, TEMPERATURA,UMIDADE,ANO,MES,DIA,HORA,MINUTO,SEGUNDO)
+                        VALUES (?,?,?,?,?,?,?,?,?,?)
+                        """, vetor)
+                    conn.commit()
+                    conn.close()
+                except KeyError:
+                    print ('erro do banco')
 
             except KeyError:
                 print ('tag n encontrada: ' + mac)

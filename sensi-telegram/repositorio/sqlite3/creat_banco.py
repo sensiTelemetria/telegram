@@ -1,5 +1,6 @@
 import sqlite3
-conn = sqlite3.connect('home/pi/Desktop/sensi.db')
+from settings import dataBaseSensiDir
+conn = sqlite3.connect(dataBaseSensiDir)
 
 cursor = conn.cursor()
 

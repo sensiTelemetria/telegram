@@ -2,7 +2,7 @@
 dataBaseDjangoDir = '/home/pi/Desktop/Django/SensiProject/db.sqlite3'
 
 #path do banco de dados das tags
-dataBaseRuuviDir = ''
+dataBaseSensiDir = '/home/pi/Desktop/sensi.db'
 
 #dados sobre o cliente/
 name = 'banco de sangue'
