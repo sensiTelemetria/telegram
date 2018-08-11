@@ -31,8 +31,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1289">
-              <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state relative-caret-position="974">
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="e#563#636#0" expanded="true" />
               </folding>
@@ -40,37 +40,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/repositorio/main.py">
+      <file leaf-file-name="auth.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/auth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="77" column="78" lean-forward="true" selection-start-line="77" selection-start-column="3" selection-end-line="77" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="specified_tags.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ruuvi/specified_tags.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="1596">
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1534011148997" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
+                <marker date="1534011148997" expanded="true" signature="983:1013" ph="select * fro... usuarios_usuario" />
+                <marker date="1534011148997" expanded="true" signature="1828:1858" ph="select * fro... usuarios_usuario" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensiTags.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sensiTags.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sensiTags.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+            <state relative-caret-position="105">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-                <marker date="1534006329701" expanded="true" signature="312:334" ph="select * fro... tags_tag" />
+                <marker date="1534011149044" expanded="true" signature="313:335" ph="select * fro... tags_tag" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,13 +124,13 @@
         <option value="[Connection] CONSOLE - Connection" />
         <option value="$PROJECT_DIR$/help.py" />
         <option value="$PROJECT_DIR$/tags.py" />
-        <option value="$PROJECT_DIR$/auth.py" />
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/ruuvi/callback.py" />
         <option value="$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/ruuvi/specified_tags.py" />
         <option value="$PROJECT_DIR$/sensiTags.py" />
+        <option value="$PROJECT_DIR$/auth.py" />
       </list>
     </option>
   </component>
@@ -573,27 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="69" column="72" lean-forward="true" selection-start-line="69" selection-start-column="72" selection-end-line="69" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1533999681907" expanded="true" signature="425:455" ph="select * fro... usuarios_usuario" />
-            <marker date="1533999681907" expanded="true" signature="966:996" ph="select * fro... usuarios_usuario" />
-            <marker date="1533999681907" expanded="true" signature="1811:1841" ph="select * fro... usuarios_usuario" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -650,16 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1289">
-          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding>
-            <element signature="e#563#636#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ruuvi/specified_tags.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -670,13 +642,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="974">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="e#563#636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sensiTags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        <state relative-caret-position="105">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <marker date="1534006329701" expanded="true" signature="312:334" ph="select * fro... tags_tag" />
+            <marker date="1534011149044" expanded="true" signature="313:335" ph="select * fro... tags_tag" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1534011148997" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
+            <marker date="1534011148997" expanded="true" signature="983:1013" ph="select * fro... usuarios_usuario" />
+            <marker date="1534011148997" expanded="true" signature="1828:1858" ph="select * fro... usuarios_usuario" />
           </folding>
         </state>
       </provider>

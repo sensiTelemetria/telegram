@@ -1,5 +1,5 @@
 import sqlite3
-from tags import *
+from sensiTags import SensiTags
 from settings import dataBaseDjangoDir
 from help import Help
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -23,7 +23,7 @@ class Auth:
                 self.name = user[1]
                 self.authorize = True
                 self.help = Help(chat_id)
-                #self.tags = SensiTags()
+                self.sensiTags = SensiTags()
         self.chat_id = chat_id
 
 
@@ -70,7 +70,7 @@ class Auth:
         bot.send_message(self.chat_id, msgSystem, parse_mode="markdown")
 
     def infoTags(self, bot):
-        bot.send_message(self.chat_id, self.tags.getInfo(), parse_mode="markdown" )
+        bot.send_message(self.chat_id, self.sensiTags.getInfo() , parse_mode="markdown" )
 
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")

@@ -3,6 +3,7 @@ from ruuvitag_sensor.ruuvi import RuuviTagSensor
 import os
 import datetime
 import time
+
 class SensiTags:
 
     def __init__(self):
