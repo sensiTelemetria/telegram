@@ -1,37 +1,31 @@
 import random
+from settings import *
+
 class Help:
-    msgPadrao = None
+    msghelp = None
+    msgSystem = None
     chat_id = None
 
     def __init__(self, chat_id):
         self.chat_id = chat_id
         #todo lista padrao de ajuda do bot
-
         boasVindas = ["olá!", "olá! Aqui é a Sensi!", "Sensi aqui!", "Ei!", "Me chamou?"]
-        msgPadrao = random.choice(boasVindas) + "\n" + "Não entendi oq vc disse... mas posso te ajudar: "
+        msghelp = random.choice(boasVindas) + "\n" + "Não entendi oq vc disse... mas posso te ajudar: "
+        msghelp = msghelp +"\n\n*->* /infoUsers -" + " Para saber mais sobre os usuários do sistema"
+        msghelp = msghelp +"\n\n*->* /infoSystem -" + " Para saber mais sobre o seu sistema"
+        msghelp = msghelp +"\n\n*->* /infoTags -" + " Para saber mais sobre as SensiTags instaladas no seu sistema"
 
-        msgPadrao = msgPadrao +"\n\n*->* /infoUsers -" + " Para saber mais sobre os usuários do sistema"
+        self.msghelp = msghelp
 
-        msgPadrao = msgPadrao + "\n\n*->* ultimo registro da SensiTag :"
-        msgPadrao = msgPadrao + "/SensiTag"
-
-        msgPadrao = msgPadrao + "\n\n*->* Reiniciar o sistema :"
-        self.msgPadrao = msgPadrao + "/reboot"
+        #mensagem sobre info do sistema
+        msgSystem = ", aqui estão as informações sobre o sistema Sensi de telemetria.\n\n "
+        msgSystem = msgSystem + '*->* Fundadores:\n' + owners[1][0] + ' - ' + owners[1][1] + '\n' + owners[2][0] + ' - ' + owners[2][1] + '\n\n'
+        msgSystem = msgSystem + ' *->* site da empresa: ' + site + '\n'
+        self.msgSystem = msgSystem
 
     def helpMessage(self):
-        return self.msgPadrao
+        return self.msghelp
 
-
-    def get_mensagem_Padrao(self):
-        boasVindas = ["olá!", "Sensi aqui!", "Ei!", "Me chamou?"]
-        msg = random.choice(boasVindas) + "\nAcho que vc esta precisando de ajuda! Deixe-me ajudar vc:"
-        msg = msg + self.msgPadrao
-        return msg
-
-    def get_mensagem_nao_reconhecida(self):
-        boasVindas = ["olá!","olá! Aqui é a Sensi!", "Sensi aqui!", "Ei!", "Me chamou?"]
-        msg = random.choice(boasVindas) + "\n" + "Não entendi oq vc disse... mas posso te ajudar: "
-        msg = msg + self.msgPadrao
-        return msg
-
+    def infoSystem(self):
+        return self.msgSystem
 

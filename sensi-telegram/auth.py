@@ -1,5 +1,6 @@
 import sqlite3
-from settings import dataBaseDir
+from tags import *
+from settings import dataBaseDjangoDir
 from help import Help
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
@@ -9,8 +10,10 @@ class Auth:
     chat_id = None
     authorize = False
     help = None
+    tags = None
+
     def __init__(self, chat_id):
-        conn = sqlite3.connect(dataBaseDir)
+        conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""select * from usuarios_usuario""")
         conn.commit()
@@ -20,12 +23,13 @@ class Auth:
                 self.name = user[1]
                 self.authorize = True
                 self.help = Help(chat_id)
+                #self.tags = SensiTags()
         self.chat_id = chat_id
 
 
 
     def authUser(self):
-        return not self.authorize
+        return self.authorize
 
     def unauthorized(self, bot):
         conn = sqlite3.connect(dataBaseDir)
@@ -47,7 +51,7 @@ class Auth:
         msg = 'Ei, ' + self.name + '!\n'
         msg = msg + 'Aqui está a lista de usuários do meu sistema:\n\n'
 
-        conn = sqlite3.connect(dataBaseDir)
+        conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""select * from usuarios_usuario""")
         conn.commit()
@@ -61,5 +65,13 @@ class Auth:
         msg = msg + 'Precisando de mais alguma coisa? É só me chamar :)'
         bot.send_message(self.chat_id, msg, parse_mode="markdown")
 
+    def infoSystem(self, bot):
+        msgSystem = self.name + self.help.infoSystem()
+        bot.send_message(self.chat_id, msgSystem, parse_mode="markdown")
+
+    def infoTags(self, bot):
+        bot.send_message(self.chat_id, self.tags.getInfo(), parse_mode="markdown" )
+
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")
+

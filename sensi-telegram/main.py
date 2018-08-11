@@ -55,7 +55,19 @@ def infoUsers(bot, update):
     else:
         user.unauthorized(bot)
 
+def infoSystem(bot, update):
+    user = Auth(update.message.chat_id)
+    if user.authUser():
+        user.infoSystem(bot)
+    else:
+        user.unauthorized(bot)
 
+def infoTags(bot, update):
+    user = Auth(update.message.chat_id)
+    if user.authUser():
+        user.infoTags(bot)
+    else:
+        user.unauthorized(bot)
 def main():
     """Start the bot."""
     # Create the EventHandler and pass it your bot's token.
@@ -68,10 +80,15 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("infoUsers", infoUsers))
+    dp.add_handler(CommandHandler("infoSystem", infoSystem))
+    dp.add_handler(CommandHandler("infoTags", infoTags))
 
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
+
+    j = updater.job_queue
+    #j.run_once(getData(), 1)
 
     # log all errors
     dp.add_error_handler(error)

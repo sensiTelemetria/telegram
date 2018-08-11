@@ -1,0 +1,25 @@
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+import datetime
+
+# Use a service account
+cred = credentials.Certificate('chave.json')
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+for i in range(100):
+    doc_ref= db.collection(u'tags').document('tag_1')
+
+    reg = doc_ref.collection(u'registros').document(u'registro_' + str(i))
+
+
+
+
+users_ref = db.collection(u'tags')
+docs = users_ref.get()
+
+
+
+

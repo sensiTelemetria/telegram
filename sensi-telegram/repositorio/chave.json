@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "telemetriahucam",
+  "private_key_id": "e0d6d5d0cad08a4a8c1c4925ec50ae6feb4a35fc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCg/X+BdFHzFCjJ\ntJUzbyNNrzMTD2Zvdskmfx01PaP1fi5RYoi+YRobjsE7+hXdoJrKlMZeluiqlaaF\n25T2oa0sMsh6d1WVgUYxU3/CqGUia+FqH+gH0wrc9OEcsoSU9xfb9u/w1wq7QGL7\nmoOGVFC+cO3YvT683faksqD/mTgMVjakbbBrEmeho2lphdH/cNwbLSLSlsacVP8a\nR8o+OeaigLT7AFJJ2gKghdpmuaqGeK9JI4OIbAaCKddjGFKtOFs+s/MXB4laxxtu\ni8NY4zz7rKlQyvdjcnkPAfPC+j2tMzCPXvNCYWb7f1Cdjgz+P+ST1zuxOrXMxwrW\nLAVEmqvBAgMBAAECggEAAm/JznPcMmycgC6O+E8DItevM0d3NIJQ0bfIcXQKE3L2\nKKJQGWkS9gYxbarnqjHGTAEH1lpMgdn3YfTojpnUexv26bcdDRDuhvw5faDSvIxT\nVmnOl1E5+62La3W2gOJzSo+UksGvenVzVhVw7o9fxD0ldXOKU72ckEI5onq/RN0C\nTAhNOqi4OHX5sbHqVmesYF0GXYoBcGYIoR/7Y+Ildb0LqvWrjtnHoVifVZa02oAl\nEmhmu6J/4cYnYY2PlHM5L0htK9SW8kHDXXbJULM/BYEkaYjYHAM7XxcLxn/IQ/kU\nh/koB9yr7j4QY5h/ebKYvnX6vwbAEk5wId6qEsuFUQKBgQDM9/D4/0AZVZXXttrz\n2tbrulnywQWfMht9X7HZSkW9swuDdhyqLQ+2504LLsa3FjP8mPIb/YiC/jfQX69l\n5HV1Fz+KUMVL/Kwq7oL/xqOooiwfvzvZTnq+tFsS1hcJmO6trYhD1KnvuX2RQ2p3\nkyYTQHnRPoEyuxW6ZiQesBSvsQKBgQDJEoQ66Ecu2GX8f9h9w49l4Es/y4gHrfpV\nkn1rbk6PlaDND0+P6XlYEA++hJKGN4oWPtaB8CheXKCUOhbvEmW6ttq76C1s0Dxc\nl+6gL3fdUmD1ybChf4PtkIgKWg6Sxv8BfUBqrXVzYGWwBQSD1aMp+kkWP26YTDnj\nE70i7uRREQKBgQC9NklSYrd2a6Z2ywtWv3dVhuLQENWyvxvXYgaY81JsKyN+yQLv\nKcfu7ZoDArxYeXumPD6MDkD9w9YcWqhdJEg1vi9e7O8lFWyN+T4fBe1Al+yppeyG\nz0bKU04bll0P9AipdZ9sFp6FeTNsbNKU7dbhQMzzl4LHJSOKvg2r8po2EQKBgASh\n/pX04B7+MWtd7rkHFni8cD9qCxpSMeBi3azp/7ljMy9GWQjx0i/rPtGe8FlTUkUs\n8XhQ9j0mWTTRGdIsVFe2+tc1hEZrjdh8T601KsfYrA89tGokK///QoMqjAdpulpo\nbmGG2Zvs7qrdkrsO4xGGiMSQdZXgu7y1qbfyVSRhAoGAE8x4OQ391DuivuPJpt+R\nWOf7tX7J0oh+cmguc9VNbUi+hf2wEvjOHM9hEdUz2pVlqg0CGY/U2JwNr1qm2Wvi\nSXALU9TD1ev6bLC37sTGWtWbsBLRyBGM/ogXQMPmqdL970UYImcK6bNxobGcgX8Q\nCPIGQw8Repmg7CCZTcIRHKM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "telemetriahucam@appspot.gserviceaccount.com",
+  "client_id": "111049048982966025766",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/telemetriahucam%40appspot.gserviceaccount.com"
+}
