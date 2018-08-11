@@ -70,7 +70,8 @@ class Auth:
         bot.send_message(self.chat_id, msgSystem, parse_mode="markdown")
 
     def infoTags(self, bot):
-        bot.send_message(self.chat_id, self.sensiTags.getInfo() , parse_mode="markdown" )
+        msgTags = self.name + self.sensiTags.getInfo()
+        bot.send_message(self.chat_id, msgTags , parse_mode="markdown" )
 
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")

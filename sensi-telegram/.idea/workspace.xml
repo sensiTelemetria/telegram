@@ -43,27 +43,24 @@
       <file leaf-file-name="auth.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="378">
+              <caret line="75" column="27" lean-forward="true" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1534011148997" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
-                <marker date="1534011148997" expanded="true" signature="983:1013" ph="select * fro... usuarios_usuario" />
-                <marker date="1534011148997" expanded="true" signature="1828:1858" ph="select * fro... usuarios_usuario" />
+                <marker date="1534013209826" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
+                <marker date="1534013209826" expanded="true" signature="983:1013" ph="select * fro... usuarios_usuario" />
+                <marker date="1534013209826" expanded="true" signature="1828:1858" ph="select * fro... usuarios_usuario" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensiTags.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sensiTags.py">
+      <file leaf-file-name="help.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/help.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
-              <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <marker date="1534012261636" expanded="true" signature="328:350" ph="select * fro... tags_tag" />
-              </folding>
+              <caret line="21" column="37" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="21" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,6 +71,20 @@
             <state relative-caret-position="294">
               <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sensiTags.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sensiTags.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <marker date="1534013209888" expanded="true" signature="328:350" ph="select * fro... tags_tag" />
+                <marker date="1534013209888" expanded="true" signature="843:865" ph="select * fro... tags_tag" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,8 +140,8 @@
         <option value="$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/ruuvi/specified_tags.py" />
-        <option value="$PROJECT_DIR$/auth.py" />
         <option value="$PROJECT_DIR$/sensiTags.py" />
+        <option value="$PROJECT_DIR$/auth.py" />
       </list>
     </option>
   </component>
@@ -558,20 +569,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/help.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ruuvi/data_tag.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-252">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -652,6 +655,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/help.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="21" column="37" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="21" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -662,24 +673,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="378">
+          <caret line="75" column="27" lean-forward="true" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1534011148997" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
-            <marker date="1534011148997" expanded="true" signature="983:1013" ph="select * fro... usuarios_usuario" />
-            <marker date="1534011148997" expanded="true" signature="1828:1858" ph="select * fro... usuarios_usuario" />
+            <marker date="1534013209826" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
+            <marker date="1534013209826" expanded="true" signature="983:1013" ph="select * fro... usuarios_usuario" />
+            <marker date="1534013209826" expanded="true" signature="1828:1858" ph="select * fro... usuarios_usuario" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sensiTags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        <state relative-caret-position="315">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <marker date="1534012261636" expanded="true" signature="328:350" ph="select * fro... tags_tag" />
+            <marker date="1534013209888" expanded="true" signature="328:350" ph="select * fro... tags_tag" />
+            <marker date="1534013209888" expanded="true" signature="843:865" ph="select * fro... tags_tag" />
           </folding>
         </state>
       </provider>
