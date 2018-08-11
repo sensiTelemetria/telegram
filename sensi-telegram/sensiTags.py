@@ -18,8 +18,8 @@ class SensiTags:
         query = (cursor.fetchall())
         msgTags = ", aqui estão as informações sobre as suas SensiTags.\n\n "
         for tag in query:
-            msgTags = msgTags + '*->* MAC: ' + tag[1] + '\n'
-            msgTags = msgTags + '     Localização: ' + tag[2] + '\n\n'
+            msgTags = msgTags + '*->* MAC: *' + tag[1] + '*\n'
+            msgTags = msgTags + '     Localização: *' + tag[2] + '*\n\n'
         return msgTags
 
     def getData(self):
