@@ -9,27 +9,32 @@ import time
 macs = ['D7:05:12:28:73:D9', 'F7:82:69:C1:8A:F9' ]
 # get_data_for_sensors will look data for the duration of timeout_in_sec
 timeout_in_sec = 10
-i=0
 while 1:
-    i=i+1
-    print(i)
     datas = RuuviTagSensor.get_data_for_sensors(macs, timeout_in_sec)
     # Dictionary will have lates data for each sensor
     for mac in macs:
         try:
-            tags = datas[mac]
+            tag = datas[mac]
             # print(datas['D7:05:12:28:73:D9'])
-            for var in tags:
-                print(var + " : " + str(tags[var]))
-            date = datetime.datetime.now()
-            print("MAC: ", mac)
-            print("Ano : " + str(date.year))
-            print("Mês : " + str(date.month))
-            print("dia : " + str(date.day))
-            print("hora : " + str(date.hour))
-            print("minuto : " + str(date.minute))
-            print("segundo : " + str(date.second))
-            print("\n\n--------------------------\n\n")
+            for var in tag:
+                print(var + " : " + str(tag[var]))
+
+            TUPLA = (mac,
+                     tag['battery'],
+                     tag['temperature'],
+                     tag['humidity'],
+                     int(date.year),
+                     int(date.month),
+                     int(date.day),
+                     int(date.hour),
+                     int(date.minute),
+                     int(date.second),
+                     )
+
+            vetor = [TUPLA, ]
+
+            print("VETOR : ", vetor)
+
         except KeyError:
             print ('continua')
 
