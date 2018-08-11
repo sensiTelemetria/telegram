@@ -22,7 +22,10 @@ class SensiTags:
 
     def getData(self):
         os.system('clear')
-        macs = ['D7:05:12:28:73:D9', 'F7:82:69:C1:8A:F9']
+        macs = []
+        query = self.getInfo()
+        for tag in query:
+            macs.push(tag[1])
         timeout_in_sec = 10
         datas = RuuviTagSensor.get_data_for_sensors(macs, timeout_in_sec)
         # Dictionary will have lates data for each sensor
