@@ -32,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="974">
-              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="e#563#636#0" expanded="true" />
               </folding>
@@ -44,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/auth.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="75" column="27" lean-forward="true" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
+              <caret line="75" column="27" lean-forward="false" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <marker date="1534013209826" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
@@ -55,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensiTags.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sensiTags.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sensiTags.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -74,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="16" />
+              <caret line="4" column="45" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -83,11 +83,22 @@
       <file leaf-file-name="creat_banco.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="21">
+              <caret line="1" column="50" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="50" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1534014158774" expanded="true" signature="187:585" ph="CREATE TABLE... reg" />
+                <marker date="1534014289952" expanded="true" signature="160:558" ph="CREATE TABLE... reg" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ver_banco.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ver_banco.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1533914265697" expanded="true" signature="92:109" ph="SELECT * FRO... reg" />
               </folding>
             </state>
           </provider>
@@ -144,8 +155,8 @@
         <option value="$PROJECT_DIR$/ruuvi/specified_tags.py" />
         <option value="$PROJECT_DIR$/auth.py" />
         <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py" />
         <option value="$PROJECT_DIR$/sensiTags.py" />
+        <option value="$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py" />
       </list>
     </option>
   </component>
@@ -335,13 +346,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tags/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="59" lean-forward="true" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/novo_usuario.html" />
     <entry file="file://$PROJECT_DIR$/usuarios/templates/Base.html" />
     <entry file="file://$PROJECT_DIR$/alarmes/forms" />
@@ -596,7 +600,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
+            <element signature="e#0#55#0" expanded="false" />
             <marker date="1533914265588" expanded="true" signature="445:487" ph="SELECT * FRO... reg" />
           </folding>
         </state>
@@ -623,7 +627,7 @@
         <state relative-caret-position="210">
           <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -631,7 +635,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="974">
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <element signature="e#563#636#0" expanded="true" />
           </folding>
@@ -649,7 +653,7 @@
     <entry file="file://$PROJECT_DIR$/auth.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="75" column="27" lean-forward="true" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
+          <caret line="75" column="27" lean-forward="false" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
             <marker date="1534013209826" expanded="true" signature="438:468" ph="select * fro... usuarios_usuario" />
@@ -659,32 +663,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/repositorio/data_tag.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="63" column="16" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="63" selection-end-column="16" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="false" />
             <marker date="1533914265666" expanded="true" signature="1262:1378" ph="INSERT INTO reg... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1534014158774" expanded="true" signature="187:585" ph="CREATE TABLE... reg" />
           </folding>
         </state>
       </provider>
@@ -698,6 +683,34 @@
             <marker date="1534014158712" expanded="true" signature="346:368" ph="select * fro... tags_tag" />
             <marker date="1534014158712" expanded="true" signature="866:888" ph="select * fro... tags_tag" />
             <marker date="1534014158712" expanded="true" signature="1995:2131" ph="INSERT INTO reg... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="45" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="50" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="50" />
+          <folding>
+            <marker date="1534014289952" expanded="true" signature="160:558" ph="CREATE TABLE... reg" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ver_banco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1533914265697" expanded="true" signature="92:109" ph="SELECT * FRO... reg" />
           </folding>
         </state>
       </provider>
