@@ -30,12 +30,11 @@ class SensiTags:
             for reg in querySensi:
                 if len(reg) !=  0:
                     msgLastReg = msgLastReg + '*->* MAC: *' + reg[1] + '*\n'
-                    msgLastReg = msgLastReg + '     Bateria: *' + str(reg[2]/1000) + '*\n'
-                    msgLastReg = msgLastReg + '     Temperatura: *' + str(reg[3]) + '*\n'
-                    msgLastReg = msgLastReg + '     Umidade: *' + str(reg[4]) + '*\n'
+                    msgLastReg = msgLastReg + '     Bateria: *' + str(reg[2]/1000) + 'V*\n'
+                    msgLastReg = msgLastReg + '     Temperatura: *' + str(reg[3]) + 'º*\n'
+                    msgLastReg = msgLastReg + '     Umidade: *' + str(reg[4]) + '%*\n'
                     msgLastReg = msgLastReg + "     Date : *" + str(reg[7]) + "/" + str(reg[6]) + "/" + str(reg[5]) + "*\n"
                     msgLastReg = msgLastReg + "     Hora : *" + str(reg[8]) + "h" + str(reg[9]) + "m" + str(reg[10]) + "s" + "*\n\n"
-                else:  msgLastReg = msgLastReg + "*->* A tag com mac:* " +tag[1]+"* não possui dados!\n\n "
         return msgLastReg
 
 
