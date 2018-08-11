@@ -17,6 +17,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 from auth import Auth
 import os
+from sensiTags import SensiTags
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -69,6 +70,11 @@ def infoTags(bot, update):
         user.infoTags(bot)
     else:
         user.unauthorized(bot)
+
+def getData(bot, job):
+    sensiTags = SensiTags()
+    sensiTags.getData()
+
 def main():
     """Start the bot."""
     # Create the EventHandler and pass it your bot's token.
@@ -88,10 +94,11 @@ def main():
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
 
-    j = updater.job_queue
-    #j.run_once(getData(), 1)
 
-    os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')
+    j = updater.job_queue
+    j.run_repeating(getData, interval=20, first=0)
+
+   # os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')
     # log all errors
     dp.add_error_handler(error)
 
