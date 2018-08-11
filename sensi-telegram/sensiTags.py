@@ -10,6 +10,24 @@ class SensiTags:
     def __init__(self):
         pass
 
+    def lastReg(self):
+        msgLastReg = ', aqui estão os últimos registros das suas SensiTags.\n\n'
+        conn = sqlite3.connect(dataBaseDjangoDir)
+        cursor = conn.cursor()
+        cursor.execute("""SELECT * FROM tags_tag""")
+        conn.commit()
+        query = (cursor.fetchall())
+        for tag in query:
+            connSensi = sqlite3.connect(dataBaseSensiDir)
+            cursorSensi = conn.cursor()
+            cursorSensi.execute("SELECT * FROM reg order by id desc  WHERE MAC = " + tag[1])
+            connSensi.commit()
+            querySensi = (cursorSensi.fetchall())
+            print(querySensi)
+
+        return msgLastReg
+
+
     def getInfo(self):
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()

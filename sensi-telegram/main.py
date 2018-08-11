@@ -71,6 +71,13 @@ def infoTags(bot, update):
     else:
         user.unauthorized(bot)
 
+def lastReg(bot, update):
+    user = Auth(update.message.chat_id)
+    if user.authUser():
+        user.lastReg(bot)
+    else:
+        user.unauthorized(bot)
+
 def getData(bot, job):
     sensiTags = SensiTags()
     sensiTags.getData()
@@ -89,6 +96,8 @@ def main():
     dp.add_handler(CommandHandler("infoUsers", infoUsers))
     dp.add_handler(CommandHandler("infoSystem", infoSystem))
     dp.add_handler(CommandHandler("infoTags", infoTags))
+    dp.add_handler(CommandHandler("lastReg", lastReg))
+
 
 
     # on noncommand i.e message - echo the message on Telegram

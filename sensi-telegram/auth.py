@@ -73,6 +73,10 @@ class Auth:
         msgTags = self.name + self.sensiTags.getInfo()
         bot.send_message(self.chat_id, msgTags , parse_mode="markdown" )
 
+    def lastReg(self, bot):
+        lastRegister = self.name + self.sensiTags.lastReg()
+        bot.send_message(self.chat_id, lastRegister , parse_mode="markdown" )
+
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")
 
