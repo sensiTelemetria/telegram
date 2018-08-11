@@ -32,7 +32,7 @@ class Auth:
         return self.authorize
 
     def unauthorized(self, bot):
-        conn = sqlite3.connect(dataBaseDir)
+        conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""select * from usuarios_usuario""")
         conn.commit()

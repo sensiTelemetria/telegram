@@ -16,6 +16,7 @@ bot.
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 from auth import Auth
+import os
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -90,6 +91,7 @@ def main():
     j = updater.job_queue
     #j.run_once(getData(), 1)
 
+    os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')
     # log all errors
     dp.add_error_handler(error)
 

@@ -4,7 +4,7 @@ dataBaseDjangoDir = 'db.sqlite3'
 #path do banco de dados das tags
 dataBaseRuuviDir = ''
 
-#dados sobre o cliente
+#dados sobre o cliente/
 name = 'banco de sangue'
 local = 'HUCAM'
 
