@@ -22,6 +22,7 @@ while 1:
             for var in tags:
                 print(var + " : " + str(tags[var]))
             date = datetime.datetime.now()
+            print("MAC: ", mac)
             print("Ano : " + str(date.year))
             print("Mês : " + str(date.month))
             print("dia : " + str(date.day))

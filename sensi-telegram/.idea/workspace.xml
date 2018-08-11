@@ -75,13 +75,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="specified_tags.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="specified_tags.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ruuvi/specified_tags.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-116">
-              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="504">
+              <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="creat_banco.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+              <folding>
+                <marker date="1534003776587" expanded="true" signature="159:557" ph="CREATE TABLE... reg" />
               </folding>
             </state>
           </provider>
@@ -138,6 +150,7 @@
         <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/ruuvi/callback.py" />
         <option value="$PROJECT_DIR$/ruuvi/specified_tags.py" />
+        <option value="$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py" />
       </list>
     </option>
   </component>
@@ -181,7 +194,13 @@
             <path>
               <item name="sensi-telegram" type="b2602c69:ProjectViewProjectNode" />
               <item name="sensi-telegram" type="462c0819:PsiDirectoryNode" />
-              <item name="ruuvi" type="462c0819:PsiDirectoryNode" />
+              <item name="repositorio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sensi-telegram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sensi-telegram" type="462c0819:PsiDirectoryNode" />
+              <item name="repositorio" type="462c0819:PsiDirectoryNode" />
+              <item name="sqlite3" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -332,13 +351,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tags/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/backends/sqlite3/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -669,10 +681,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ruuvi/specified_tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        <state relative-caret-position="504">
+          <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/repositorio/sqlite3/creat_banco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+          <folding>
+            <marker date="1534003776587" expanded="true" signature="159:557" ph="CREATE TABLE... reg" />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('../sensi.db')
+conn = sqlite3.connect('home/pi/Desktop/sensi.db')
 
 cursor = conn.cursor()
 
