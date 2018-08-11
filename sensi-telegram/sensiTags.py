@@ -29,9 +29,9 @@ class SensiTags:
             querySensi = (cursorSensi.fetchall())
             for reg in querySensi:
                 msgLastReg = msgLastReg + '*->* MAC: *' + reg[1] + '*\n'
-                msgLastReg = msgLastReg + '     Bateria: *' + reg[2]/1000 + '*\n'
-                msgLastReg = msgLastReg + '     Temperatura: *' + reg[3] + '*\n'
-                msgLastReg = msgLastReg + '     Umidade: *' + reg[4] + '*\n\n'
+                msgLastReg = msgLastReg + '     Bateria: *' + str(reg[2]/1000) + '*\n'
+                msgLastReg = msgLastReg + '     Temperatura: *' + str(reg[3]) + '*\n'
+                msgLastReg = msgLastReg + '     Umidade: *' + str(reg[4]) + '*\n\n'
 
         return msgLastReg
 

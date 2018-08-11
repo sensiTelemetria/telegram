@@ -68,18 +68,18 @@
       <file leaf-file-name="sensiTags.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sensiTags.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="33" column="73" lean-forward="false" selection-start-line="33" selection-start-column="73" selection-end-line="33" selection-end-column="73" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
-                <marker date="1534019237747" expanded="true" signature="427:449" ph="SELECT * FRO... tags_tag" />
-                <marker date="1534019237747" expanded="true" signature="779:796" ph="SELECT * FRO... reg" />
-                <marker date="1534019237747" expanded="true" signature="779:849" ph="SELECT * FRO... reg" />
-                <marker date="1534019237747" expanded="true" signature="875:906" ph="SELECT * FRO... WHERE" />
-                <marker date="1534019237747" expanded="true" signature="875:942" ph="SELECT * FRO... reg" />
-                <marker date="1534019237747" expanded="true" signature="1576:1598" ph="select * fro... tags_tag" />
-                <marker date="1534019237747" expanded="true" signature="2100:2122" ph="select * fro... tags_tag" />
-                <marker date="1534019237747" expanded="true" signature="3229:3365" ph="INSERT INTO reg... " />
+                <marker date="1534019336023" expanded="true" signature="427:449" ph="SELECT * FRO... tags_tag" />
+                <marker date="1534019336023" expanded="true" signature="779:796" ph="SELECT * FRO... reg" />
+                <marker date="1534019336023" expanded="true" signature="779:849" ph="SELECT * FRO... reg" />
+                <marker date="1534019336023" expanded="true" signature="875:906" ph="SELECT * FRO... WHERE" />
+                <marker date="1534019336023" expanded="true" signature="875:942" ph="SELECT * FRO... reg" />
+                <marker date="1534019336023" expanded="true" signature="1591:1613" ph="select * fro... tags_tag" />
+                <marker date="1534019336023" expanded="true" signature="2115:2137" ph="select * fro... tags_tag" />
+                <marker date="1534019336023" expanded="true" signature="3244:3380" ph="INSERT INTO reg... " />
               </folding>
             </state>
           </provider>
@@ -724,18 +724,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sensiTags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="33" column="73" lean-forward="false" selection-start-line="33" selection-start-column="73" selection-end-line="33" selection-end-column="73" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
-            <marker date="1534019237747" expanded="true" signature="427:449" ph="SELECT * FRO... tags_tag" />
-            <marker date="1534019237747" expanded="true" signature="779:796" ph="SELECT * FRO... reg" />
-            <marker date="1534019237747" expanded="true" signature="779:849" ph="SELECT * FRO... reg" />
-            <marker date="1534019237747" expanded="true" signature="875:906" ph="SELECT * FRO... WHERE" />
-            <marker date="1534019237747" expanded="true" signature="875:942" ph="SELECT * FRO... reg" />
-            <marker date="1534019237747" expanded="true" signature="1576:1598" ph="select * fro... tags_tag" />
-            <marker date="1534019237747" expanded="true" signature="2100:2122" ph="select * fro... tags_tag" />
-            <marker date="1534019237747" expanded="true" signature="3229:3365" ph="INSERT INTO reg... " />
+            <marker date="1534019336023" expanded="true" signature="427:449" ph="SELECT * FRO... tags_tag" />
+            <marker date="1534019336023" expanded="true" signature="779:796" ph="SELECT * FRO... reg" />
+            <marker date="1534019336023" expanded="true" signature="779:849" ph="SELECT * FRO... reg" />
+            <marker date="1534019336023" expanded="true" signature="875:906" ph="SELECT * FRO... WHERE" />
+            <marker date="1534019336023" expanded="true" signature="875:942" ph="SELECT * FRO... reg" />
+            <marker date="1534019336023" expanded="true" signature="1591:1613" ph="select * fro... tags_tag" />
+            <marker date="1534019336023" expanded="true" signature="2115:2137" ph="select * fro... tags_tag" />
+            <marker date="1534019336023" expanded="true" signature="3244:3380" ph="INSERT INTO reg... " />
           </folding>
         </state>
       </provider>
