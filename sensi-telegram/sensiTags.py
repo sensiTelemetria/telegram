@@ -17,6 +17,7 @@ class SensiTags:
         return query
 
     def getData(self):
+        os.system('clear')
         macs = ['D7:05:12:28:73:D9', 'F7:82:69:C1:8A:F9']
         timeout_in_sec = 10
         datas = RuuviTagSensor.get_data_for_sensors(macs, timeout_in_sec)
