@@ -21,12 +21,14 @@ class SensiTags:
             connSensi = sqlite3.connect(dataBaseSensiDir)
             cursorSensi = conn.cursor()
             print ('*************************************************************************')
-            querySet = "SELECT * FROM reg order by id desc LIMIT 1 WHERE MAC = '" + tag[1]+ "'"
-            print(querySet)
+            #querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1]+ "' order by id desc LIMIT 1"
+            querySet = "SELECT * FROM reg order by id desc LIMIT 1"
             cursorSensi.execute(querySet)
             connSensi.commit()
             querySensi = (cursorSensi.fetchall())
-            print(querySensi)
+            for reg in querySensi:
+                print(reg)
+            
 
         return msgLastReg
 
