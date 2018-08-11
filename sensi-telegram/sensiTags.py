@@ -17,10 +17,11 @@ class SensiTags:
         cursor.execute("""SELECT * FROM tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
+        print ('*************************************************************************')
+        print(query)
         for tag in query:
             connSensi = sqlite3.connect(dataBaseSensiDir)
             cursorSensi = conn.cursor()
-            print ('*************************************************************************')
             #querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1]+ "' order by id desc LIMIT 1"
             querySet = "SELECT * FROM reg order by id desc LIMIT 1"
             cursorSensi.execute(querySet)
@@ -28,7 +29,7 @@ class SensiTags:
             querySensi = (cursorSensi.fetchall())
             for reg in querySensi:
                 print(reg)
-            
+
 
         return msgLastReg
 
