@@ -3,6 +3,7 @@ from ruuvitag_sensor.ruuvi import RuuviTagSensor
 import os
 import datetime
 import time
+import sqlite3
 
 class SensiTags:
 
@@ -15,6 +16,8 @@ class SensiTags:
         cursor.execute("""select * from tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
+        for user in query:
+            print(user)
         return query
 
     def getData(self):
