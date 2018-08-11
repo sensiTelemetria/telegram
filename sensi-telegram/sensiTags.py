@@ -32,6 +32,8 @@ class SensiTags:
                 msgLastReg = msgLastReg + '     Bateria: *' + str(reg[2]/1000) + '*\n'
                 msgLastReg = msgLastReg + '     Temperatura: *' + str(reg[3]) + '*\n'
                 msgLastReg = msgLastReg + '     Umidade: *' + str(reg[4]) + '*\n\n'
+                msgLastReg = msgLastReg + "Date : *" + str(reg[7]) + "/" + str(reg[6]) + "/" + str(reg[5]) + "*\n"
+                msgLastReg = msgLastReg + "Hora : *" + str(reg[8]) + "h" + str(reg[9]) + "m" + str(reg[10]) + "s" + "*\n"
 
         return msgLastReg
 
