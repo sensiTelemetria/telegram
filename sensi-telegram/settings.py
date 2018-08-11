@@ -1,5 +1,5 @@
 #path do banco de dados do django
-dataBaseDjangoDir = '/home/Desktop/Djanjo/SensiProject/db.sqlite3'
+dataBaseDjangoDir = '/home/pi/Desktop/Django/SensiProject/db.sqlite3'
 
 #path do banco de dados das tags
 dataBaseRuuviDir = ''
