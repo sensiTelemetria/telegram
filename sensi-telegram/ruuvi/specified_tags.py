@@ -19,6 +19,7 @@ while 1:
             for var in tag:
                 print(var + " : " + str(tag[var]))
 
+            date = datetime.datetime.now()
             TUPLA = (mac,
                      tag['battery'],
                      tag['temperature'],
