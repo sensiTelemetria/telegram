@@ -15,10 +15,6 @@ while 1:
     for mac in macs:
         try:
             tag = datas[mac]
-            # print(datas['D7:05:12:28:73:D9'])
-            for var in tag:
-                print(var + " : " + str(tag[var]))
-
             date = datetime.datetime.now()
             TUPLA = (mac,
                      tag['battery'],
@@ -37,6 +33,6 @@ while 1:
             print("VETOR : ", vetor)
 
         except KeyError:
-            print ('continua')
+            print ('tag n encontrada: ' + mac)
 
     time.sleep(5)
