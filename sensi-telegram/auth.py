@@ -2,6 +2,7 @@ import sqlite3
 from sensiTags import SensiTags
 from settings import dataBaseDjangoDir
 from help import Help
+from graphics import Graphics
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 
@@ -24,6 +25,7 @@ class Auth:
                 self.authorize = True
                 self.help = Help(chat_id)
                 self.sensiTags = SensiTags()
+                self.graphic = Graphics()
         self.chat_id = chat_id
 
 
@@ -76,6 +78,10 @@ class Auth:
     def lastReg(self, bot):
         lastRegister = self.name + self.sensiTags.lastReg()
         bot.send_message(self.chat_id, lastRegister , parse_mode="markdown" )
+
+    def graphicsOneDay(self, bot):
+        msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia:"
+        bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
 
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")

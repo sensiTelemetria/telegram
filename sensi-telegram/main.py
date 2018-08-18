@@ -78,6 +78,13 @@ def lastReg(bot, update):
     else:
         user.unauthorized(bot)
 
+def graphicsOneDay(bot, update):
+    user = Auth(update.message.chat_id)
+    if user.authUser():
+        user.graphicsOneDay(bot)
+    else:
+        user.unauthorized(bot)
+
 def getData(bot, job):
     sensiTags = SensiTags()
     sensiTags.getData()
@@ -97,6 +104,7 @@ def main():
     dp.add_handler(CommandHandler("infoSystem", infoSystem))
     dp.add_handler(CommandHandler("infoTags", infoTags))
     dp.add_handler(CommandHandler("lastReg", lastReg))
+    dp.add_handler(CommandHandler("graphicsOneDay", graphicsOneDay))
 
 
 
