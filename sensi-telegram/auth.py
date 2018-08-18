@@ -3,6 +3,7 @@ from sensiTags import SensiTags
 from settings import dataBaseDjangoDir
 from help import Help
 from graphics import Graphics
+import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 
@@ -89,14 +90,11 @@ class Auth:
 
         for user in query:
             if user[1] != self.name:
-                msg = user[1] + ", o usuário "+self.name+" pediu para o sistema ser reiniciado\n\nJá já estou de volta!"
+                msg = user[1] + ", o usuário *"+self.name+"* pediu para o sistema ser reiniciado. Todos os usuários foram notificados.\n\nJá já estou de volta!"
                 bot.send_message(user[4], msg , parse_mode="markdown" )
-            else:
-                msg = user[1] + ", o usuário " + self.name + " pediu para o sistema ser reiniciado\n\nJá já estou de volta!"
-                bot.send_message(user[4], msg, parse_mode="markdown")
-
-        msg = self.name + ", vc pediu para o sistema ser reiniciado\n\nJá já estou de volta!"
+        msg = self.name + ", vc pediu para o sistema ser reiniciado. Todos os usuários foram notificados.\n\nJá já estou de volta!"
         bot.send_message(self.chat_id, msg, parse_mode="markdown")
+        os.system("sudo reboot")
 
     def graphicsOneDay(self, bot):
         msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia:"
