@@ -79,9 +79,29 @@ class Auth:
         lastRegister = self.name + self.sensiTags.lastReg()
         bot.send_message(self.chat_id, lastRegister , parse_mode="markdown" )
 
+    def reboot(self, bot):
+
+        conn = sqlite3.connect(dataBaseDjangoDir)
+        cursor = conn.cursor()
+        cursor.execute("""select * from usuarios_usuario""")
+        conn.commit()
+        query = (cursor.fetchall())
+
+        for user in query:
+            if user[1] != self.name:
+                msg = user[1] + ", o usuário "+self.name+" pediu para o sistema ser reiniciado\n\nJá já estou de volta!"
+                bot.send_message(user[4], msg , parse_mode="markdown" )
+            else:
+                msg = user[1] + ", o usuário " + self.name + " pediu para o sistema ser reiniciado\n\nJá já estou de volta!"
+                bot.send_message(user[4], msg, parse_mode="markdown")
+
+        msg = self.name + ", vc pediu para o sistema ser reiniciado\n\nJá já estou de volta!"
+        bot.send_message(self.chat_id, msg, parse_mode="markdown")
+
     def graphicsOneDay(self, bot):
         msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia:"
         bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
+        self.graphic(100, self.chat_id, )
 
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")

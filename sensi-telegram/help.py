@@ -17,6 +17,8 @@ class Help:
         msghelp = msghelp +"\n\n*->* /lastReg -" + " Para obter os últimos registros de suas SensiTags"
         msghelp = msghelp +"\n\n*->* /graphicsOneDay -" + " Para receber os gráficos das suas SensiTags do último dia"
 
+        msghelp = msghelp +"\n\n*->* /reboot -" + " Para reiniciar o sistema. Todos os usuários serão notificados"
+
         self.msghelp = msghelp
 
         #mensagem sobre info do sistema

@@ -18,6 +18,9 @@ import logging
 from auth import Auth
 import os
 from sensiTags import SensiTags
+import sqlite3
+from sensiTags import SensiTags
+from settings import dataBaseDjangoDir
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -29,8 +32,19 @@ logger = logging.getLogger(__name__)
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
-    """Send a message when the command /start is issued."""
-    update.message.reply_text('Hi!')
+    conn = sqlite3.connect(dataBaseDjangoDir)
+    cursor = conn.cursor()
+    cursor.execute("""select * from usuarios_usuario""")
+    conn.commit()
+    query = (cursor.fetchall())
+
+    msg = 'Ei, meu nome Sensi!\n'
+    msg = msg + '\nEntre em contato com uma das pessoas abaixo para se cadastrar no sistema:\n\n'
+    for user in query:
+        msg = msg + '*->* '
+        msg = msg + '*' + user[1] + '* - *' + str(user[3]) + '*\n'
+    msg = msg + '\nEnvie seu *nome*, *email*, *telefone* e avise que seu chat id é: *' + str(update.message.chat_id) + '*'
+    bot.send_message(update.message.chat_id, msg, parse_mode="markdown")
 
 
 def help(bot, update):
@@ -85,6 +99,13 @@ def graphicsOneDay(bot, update):
     else:
         user.unauthorized(bot)
 
+def reboot(bot, update):
+    user = Auth(update.message.chat_id)
+    if user.authUser():
+        user.reboot(bot)
+    else:
+        user.unauthorized(bot)
+
 def getData(bot, job):
     sensiTags = SensiTags()
     sensiTags.getData()
@@ -105,6 +126,7 @@ def main():
     dp.add_handler(CommandHandler("infoTags", infoTags))
     dp.add_handler(CommandHandler("lastReg", lastReg))
     dp.add_handler(CommandHandler("graphicsOneDay", graphicsOneDay))
+    dp.add_handler(CommandHandler("reboot", reboot))
 
 
 
@@ -113,7 +135,7 @@ def main():
 
 
     j = updater.job_queue
-    j.run_repeating(getData, interval=20, first=0)
+    j.run_repeating(getData, interval=200, first=0)
 
    # os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')
     # log all errors
