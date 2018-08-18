@@ -11,16 +11,16 @@ class Help:
         #todo lista padrao de ajuda do bot
         boasVindas = ["olá!", "olá! Aqui é a Sensi!", "Sensi aqui!", "Ei!", "Me chamou?"]
         msghelp = random.choice(boasVindas) + "\n" + "Não entendi oq vc disse... mas posso te ajudar: "
-        msghelp = msghelp + "\n\n*---- INFORMAÇÕES SOBRE O SISTEMA ----*"
+        msghelp = msghelp + "\n\n*--- INFORMAÇÕES DO SISTEMA ---*"
         msghelp = msghelp +"\n\n*->* /infoUsers -" + " Para saber mais sobre os usuários do sistema"
         msghelp = msghelp +"\n\n*->* /infoSystem -" + " Para saber mais sobre o seu sistema"
         msghelp = msghelp +"\n\n*->* /infoTags -" + " Para saber mais sobre as SensiTags instaladas no seu sistema"
 
-        msghelp = msghelp + "\n\n*---- GRÁFICOS ----*"
+        msghelp = msghelp + "\n\n*--- GRÁFICOS ---*"
         msghelp = msghelp +"\n\n*->* /lastReg -" + " Para obter os últimos registros de suas SensiTags em números"
         msghelp = msghelp +"\n\n*->* /graphicsOneDay -" + " Para receber os gráficos das suas SensiTags do último dia"
 
-        msghelp = msghelp + "\n\n*---- REINICIAR  SISTEMA ----*"
+        msghelp = msghelp + "\n\n*--- REINICIAR  O SISTEMA ---*"
         msghelp = msghelp +"\n\n*->* /reboot -" + " Para reiniciar o sistema. Todos os usuários serão notificados"
 
         self.msghelp = msghelp
