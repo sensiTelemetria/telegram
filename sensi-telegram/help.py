@@ -20,6 +20,9 @@ class Help:
         msghelp = msghelp +"\n\n*->* /lastReg -" + " Para obter os últimos registros de suas SensiTags em números"
         msghelp = msghelp +"\n\n*->* /graphicsOneDay -" + " Para receber os gráficos das suas SensiTags do último dia"
 
+        msghelp = msghelp + "\n\n*--- ALARMES ---*"
+        msghelp = msghelp + "\n\n*->* /alarmsInfo -" + " Para saber mais sobre os alarmes do sistema"
+
         msghelp = msghelp + "\n\n*--- REINICIAR  O SISTEMA ---*"
         msghelp = msghelp +"\n\n*->* /reboot -" + " Para reiniciar o sistema. Todos os usuários serão notificados"
 

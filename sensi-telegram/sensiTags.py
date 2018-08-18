@@ -2,22 +2,29 @@ from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec
 from ruuvitag_sensor.ruuvi import RuuviTagSensor
 import os
 import datetime
+from alarms import Alarms
 import time
 import sqlite3
 
 class SensiTags:
 
-    def __init__(self):
-        pass
+    alarms = None
+    bot = None
+
+    def __init__(self, bot):
+        self.alarms=Alarms(bot)
+
 
     def lastReg(self):
+        self.alarms.updateAlarms()
+        print("\n\n" + self.alarms.getInfo())
+
         msgLastReg = ', aqui estão os últimos registros das suas SensiTags.\n\n'
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
-        print(query)
         for tag in query:
             connSensi = sqlite3.connect(dataBaseSensiDir)
             cursorSensi = connSensi.cursor()

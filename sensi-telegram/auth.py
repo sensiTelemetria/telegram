@@ -3,6 +3,7 @@ from sensiTags import SensiTags
 from settings import dataBaseDjangoDir
 from help import Help
 from graphics import Graphics
+from alarms import Alarms
 import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
@@ -13,8 +14,9 @@ class Auth:
     authorize = False
     help = None
     tags = None
+    alarms = None
 
-    def __init__(self, chat_id):
+    def __init__(self, chat_id, bot ):
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""select * from usuarios_usuario""")
@@ -25,7 +27,7 @@ class Auth:
                 self.name = user[1]
                 self.authorize = True
                 self.help = Help(chat_id)
-                self.sensiTags = SensiTags()
+                self.sensiTags = SensiTags(bot)
                 self.graphic = Graphics()
         self.chat_id = chat_id
 
@@ -71,6 +73,9 @@ class Auth:
     def infoSystem(self, bot):
         msgSystem = self.name + self.help.infoSystem()
         bot.send_message(self.chat_id, msgSystem, parse_mode="markdown")
+
+    def alarmsInfo(self, bot):
+        bot.send_message(self.chat_id, self.sensiTags.alarms.getInfo(), parse_mode="markdown")
 
     def infoTags(self, bot):
         msgTags = self.name + self.sensiTags.getInfo()

@@ -65,7 +65,7 @@ def help(bot, update):
 
 
 def echo(bot, update):
-    user = Auth(update.message.chat_id)
+    user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.getHelp(bot)
     else:
@@ -77,49 +77,56 @@ def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"', update, error)
 
 def infoUsers(bot, update):
-    user = Auth(update.message.chat_id)
+    user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.infoUsers(bot)
     else:
         user.unauthorized(bot)
 
 def infoSystem(bot, update):
-    user = Auth(update.message.chat_id)
+    user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.infoSystem(bot)
     else:
         user.unauthorized(bot)
 
 def infoTags(bot, update):
-    user = Auth(update.message.chat_id)
+    user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.infoTags(bot)
     else:
         user.unauthorized(bot)
 
 def lastReg(bot, update):
-    user = Auth(update.message.chat_id)
+    user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.lastReg(bot)
     else:
         user.unauthorized(bot)
 
 def graphicsOneDay(bot, update):
-    user = Auth(update.message.chat_id)
+    user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.graphicsOneDay(bot)
     else:
         user.unauthorized(bot)
 
 def reboot(bot, update):
-    user = Auth(update.message.chat_id)
+    user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.reboot(bot)
     else:
         user.unauthorized(bot)
 
+def alarmsInfo(bot, update):
+    user = Auth(update.message.chat_id, bot)
+    if user.authUser():
+        user.alarmsInfo(bot)
+    else:
+        user.unauthorized(bot)
+
 def getData(bot, job):
-    sensiTags = SensiTags()
+    sensiTags = SensiTags(bot)
     sensiTags.getData()
 
 def main():
@@ -138,6 +145,7 @@ def main():
     dp.add_handler(CommandHandler("infoTags", infoTags))
     dp.add_handler(CommandHandler("lastReg", lastReg))
     dp.add_handler(CommandHandler("graphicsOneDay", graphicsOneDay))
+    dp.add_handler(CommandHandler("alarmsInfo", alarmsInfo))
     dp.add_handler(CommandHandler("reboot", reboot))
 
 
