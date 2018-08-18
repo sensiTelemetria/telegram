@@ -17,7 +17,7 @@ class Graphics:
         query = (cursor.fetchall())
         return query
 
-    def graphic(self, numberRegs, chat_id):
+    def makeGraphic(self, numberRegs, chat_id):
 
         print(self.getSensiTags())
 

@@ -148,7 +148,7 @@ def main():
 
     j = updater.job_queue
     j.run_repeating(getData, interval=200, first=0)
-    j.run_once(systemInit, 5)
+    j.run_once(systemInit, 0)
 
    # os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')
     # log all errors

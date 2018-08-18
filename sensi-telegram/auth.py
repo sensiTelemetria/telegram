@@ -99,7 +99,7 @@ class Auth:
     def graphicsOneDay(self, bot):
         msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia:"
         bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
-        self.graphic(100, self.chat_id )
+        self.graphic.makeGraphic(100, self.chat_id )
 
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")
