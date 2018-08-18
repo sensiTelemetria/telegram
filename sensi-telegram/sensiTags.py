@@ -17,8 +17,6 @@ class SensiTags:
 
     def lastReg(self):
         self.alarms.updateAlarms()
-        print("\n\n" + self.alarms.getInfo())
-
         msgLastReg = ', aqui estão os últimos registros das suas SensiTags.\n\n'
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()

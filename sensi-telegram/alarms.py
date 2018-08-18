@@ -25,5 +25,7 @@ class Alarms:
     def getInfo(self):
         msg = ', tudo bem?\nAqui estão os detalhes dos alarmes armados do seu sistema!:\n'
         for al in self.alarms:
-            msg = msg + str(al) + "\n"
+            msgAlarms = msgAlarms + '*->* Nome: *' + al[1] + '*\n'
+            msgAlarms = msgAlarms + '     Trigger: *' + str(al[2]) + 'V*\n'
+
         return msg
