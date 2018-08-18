@@ -15,6 +15,7 @@ class Help:
         msghelp = msghelp +"\n\n*->* /infoSystem -" + " Para saber mais sobre o seu sistema"
         msghelp = msghelp +"\n\n*->* /infoTags -" + " Para saber mais sobre as SensiTags instaladas no seu sistema"
         msghelp = msghelp +"\n\n*->* /lastReg -" + " Para obter os últimos registros de suas SensiTags"
+        msghelp = msghelp +"\n\n*->* /graphicsOneDay -" + " Para receber os gráficos das suas SensiTags do último dia"
 
         self.msghelp = msghelp
 
