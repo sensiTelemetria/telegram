@@ -18,3 +18,6 @@ site = 'www.sensitelemetria.com'
 
 #django
 siteConfig = "192.168.1.2:8000"
+
+#time out das leiturass das sensiTags
+timeout_in_sec = 30

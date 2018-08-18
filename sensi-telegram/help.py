@@ -28,8 +28,8 @@ class Help:
         #mensagem sobre info do sistema
         msgSystem = ", aqui estão as informações sobre o sistema Sensi de telemetria.\n\n "
         msgSystem = msgSystem + '*->* Fundadores:\n' + owners[1][0] + ' - ' + owners[1][1] + '\n' + owners[2][0] + ' - ' + owners[2][1] + '\n\n'
-        msgSystem = msgSystem + ' *->* site da empresa: ' + site + '\n'
-        msgSystem = msgSystem + ' *->* Interface de configuração do seu sistema: ' + siteConfig + '\n'
+        msgSystem = msgSystem + ' *->* site da empresa: ' + site + '\n\n'
+        msgSystem = msgSystem + ' *->* Interface de configuração do seu sistema: ' + siteConfig + '\n\n'
 
         self.msgSystem = msgSystem
 

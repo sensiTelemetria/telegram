@@ -1,4 +1,4 @@
-from settings import dataBaseDjangoDir, dataBaseSensiDir
+from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec
 from ruuvitag_sensor.ruuvi import RuuviTagSensor
 import os
 import datetime
@@ -59,7 +59,6 @@ class SensiTags:
         query = (cursor.fetchall())
         for tag in query:
             macs.append(tag[1])
-        timeout_in_sec = 10
         datas = RuuviTagSensor.get_data_for_sensors(macs, timeout_in_sec)
         # Dictionary will have lates data for each sensor
         for mac in macs:
