@@ -17,7 +17,6 @@ class SensiTags:
         cursor.execute("""SELECT * FROM tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
-        print ('*************************************************************************')
         print(query)
         for tag in query:
             connSensi = sqlite3.connect(dataBaseSensiDir)
