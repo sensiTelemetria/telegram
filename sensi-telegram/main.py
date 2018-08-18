@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 
 # Define a few command handlers. These usually take the two arguments bot and
 # update. Error handlers also receive the raised TelegramError object in error.
-def systemInit(bot):
+def systemInit(bot, job):
     conn = sqlite3.connect(dataBaseDjangoDir)
     cursor = conn.cursor()
     cursor.execute("""select * from usuarios_usuario""")
@@ -148,7 +148,7 @@ def main():
 
     j = updater.job_queue
     j.run_repeating(getData, interval=200, first=0)
-    j.run_once(systemInit)
+    j.run_once(systemInit, 5)
 
    # os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')
     # log all errors
