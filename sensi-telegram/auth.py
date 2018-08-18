@@ -75,7 +75,8 @@ class Auth:
         bot.send_message(self.chat_id, msgSystem, parse_mode="markdown")
 
     def alarmsInfo(self, bot):
-        bot.send_message(self.chat_id, self.sensiTags.alarms.getInfo(), parse_mode="markdown")
+        msgAlarms = self.name + self.sensiTags.alarms.getInfo()
+        bot.send_message(self.chat_id, msgAlarms, parse_mode="markdown")
 
     def infoTags(self, bot):
         msgTags = self.name + self.sensiTags.getInfo()
