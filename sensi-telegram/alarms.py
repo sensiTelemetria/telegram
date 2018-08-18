@@ -23,4 +23,7 @@ class Alarms:
         self.alarms = query
 
     def getInfo(self):
-        return self.alarms
+        msg = ''
+        for al in self.alarms:
+            msg = msg + str(al) + "\n"
+        return msg

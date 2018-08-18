@@ -12,7 +12,7 @@ class SensiTags:
     bot = None
 
     def __init__(self, bot):
-        self.alarms=Alarms(bot)
+        self.alarms = Alarms(bot)
 
 
     def lastReg(self):
