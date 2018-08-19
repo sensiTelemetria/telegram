@@ -60,7 +60,7 @@ class Graphics:
             if len(querySensi) > 0:
                 fig, ax = plt.subplots()
                 ax.plot(time, temperature)
-                ax.set(xlabel='tempo', ylabel='Temperatura (ºC)',
+                ax.set( ylabel='Temperatura (ºC)',
                        title= "SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
                 ax.grid()
                 ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
@@ -70,7 +70,7 @@ class Graphics:
 
                 fig, ax = plt.subplots()
                 ax.plot(time, humidity)
-                ax.set(xlabel='tempo', ylabel='Umidade (%)',
+                ax.set( ylabel='Umidade (%)',
                        title="SensiTag: " + local + " - MAC: " + mac + "\nUmidade")
                 ax.grid()
                 ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
@@ -80,7 +80,7 @@ class Graphics:
 
                 fig, ax = plt.subplots()
                 ax.plot(time, batery)
-                ax.set(xlabel='tempo', ylabel='Bateria (V)',
+                ax.set(ylabel='Bateria (V)',
                        title="SensiTag: " + local + " - MAC: " + mac + "\nBateria")
                 ax.grid()
                 ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
