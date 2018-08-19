@@ -104,7 +104,7 @@ class Auth:
         os.system("sudo reboot")
 
     def graphicsOneDay(self, bot):
-        msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia:"
+        msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia.\nOs gráficos devem demorar alguns segundos para chegar!"
         bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
 
         self.graphic.makeGraphicAll(200)
