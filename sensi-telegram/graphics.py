@@ -39,14 +39,16 @@ class Graphics:
             connSensi = sqlite3.connect(dataBaseSensiDir)
             cursorSensi = connSensi.cursor()
             # querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1]+ "' order by id desc LIMIT 1"
-            querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1] + "' order by id asc LIMIT " + str(numberRegs)
+            querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1] + "' order by id desc LIMIT " + str(numberRegs)
             cursorSensi.execute(querySet)
             connSensi.commit()
             querySensi = (cursorSensi.fetchall())
+
+            mac = tag[1]
+            local = tag[2]
+
             for reg in querySensi:
                 if len(reg) != 0:
-
-                    mac = reg[1]
                     temperature.append(reg[3])
                     humidity.append(reg[4])
                     batery.append(float(reg[2]/1000))
@@ -57,7 +59,7 @@ class Graphics:
             fig, ax = plt.subplots()
             ax.plot(time, temperature)
             ax.set(xlabel='tempo', ylabel='Temperatura (ºC)',
-                   title= " Tag: " + mac + " - temperatura\nSensiTags")
+                   title= "SensiTag: " + local + "\nMAC: " + mac + "\nTemperatura")
             ax.grid()
             # rotate and align the tick labels so they look better
             fig.autofmt_xdate()
@@ -66,7 +68,7 @@ class Graphics:
             fig, ax = plt.subplots()
             ax.plot(time, humidity)
             ax.set(xlabel='tempo', ylabel='Umidade (%)',
-                   title=" Tag: " + mac + " - Umidade.png")
+                   title="SensiTag: " + local + "\nMAC: " + mac + "\nUmidade")
             ax.grid()
             # rotate and align the tick labels so they look better
             fig.autofmt_xdate()
@@ -75,7 +77,7 @@ class Graphics:
             fig, ax = plt.subplots()
             ax.plot(time, batery)
             ax.set(xlabel='tempo', ylabel='Bateria (V)',
-                   title=" Tag: " + mac + " - Bateria.png")
+                   title="SensiTag: " + local + "\nMAC: " + mac + "\nBateria")
             ax.grid()
             # rotate and align the tick labels so they look better
             fig.autofmt_xdate()

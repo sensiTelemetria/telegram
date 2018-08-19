@@ -107,7 +107,7 @@ class Auth:
         msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia:"
         bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
 
-        self.graphic.makeGraphicAll(10)
+        self.graphic.makeGraphicAll(200)
 
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
@@ -115,6 +115,8 @@ class Auth:
         conn.commit()
         query = (cursor.fetchall())
         for tag in query:
+            msgTag = tag[2]
+            bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
             bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
             bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
             bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
