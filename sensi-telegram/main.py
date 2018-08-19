@@ -21,6 +21,7 @@ from sensiTags import SensiTags
 import sqlite3
 from sensiTags import SensiTags
 from settings import dataBaseDjangoDir
+from settings import DataInterval
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -155,7 +156,7 @@ def main():
 
 
     j = updater.job_queue
-    j.run_repeating(getData, interval=200, first=0)
+    j.run_repeating(getData, interval=DataInterval, first=0)
     j.run_once(systemInit, 0)
 
    # os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')
