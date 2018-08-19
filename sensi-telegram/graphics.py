@@ -56,29 +56,30 @@ class Graphics:
                     time.append(date)
             # Data for plotting
 
-            fig, ax = plt.subplots()
-            ax.plot(time, temperature)
-            ax.set(xlabel='tempo', ylabel='Temperatura (ºC)',
-                   title= "SensiTag: " + local + "\nMAC: " + mac + "\nTemperatura")
-            ax.grid()
-            # rotate and align the tick labels so they look better
-            fig.autofmt_xdate()
-            fig.savefig(tempDir+mac + "_Temperatura.png")
+            if len(querySensi) > 0:
+                fig, ax = plt.subplots()
+                ax.plot(time, temperature)
+                ax.set(xlabel='tempo', ylabel='Temperatura (ºC)',
+                       title= "SensiTag: " + local + "\nMAC: " + mac + "\nTemperatura")
+                ax.grid()
+                # rotate and align the tick labels so they look better
+                fig.autofmt_xdate()
+                fig.savefig(tempDir+mac + "_Temperatura.png")
 
-            fig, ax = plt.subplots()
-            ax.plot(time, humidity)
-            ax.set(xlabel='tempo', ylabel='Umidade (%)',
-                   title="SensiTag: " + local + "\nMAC: " + mac + "\nUmidade")
-            ax.grid()
-            # rotate and align the tick labels so they look better
-            fig.autofmt_xdate()
-            fig.savefig(tempDir+mac + "_Umidade.png")
+                fig, ax = plt.subplots()
+                ax.plot(time, humidity)
+                ax.set(xlabel='tempo', ylabel='Umidade (%)',
+                       title="SensiTag: " + local + "\nMAC: " + mac + "\nUmidade")
+                ax.grid()
+                # rotate and align the tick labels so they look better
+                fig.autofmt_xdate()
+                fig.savefig(tempDir+mac + "_Umidade.png")
 
-            fig, ax = plt.subplots()
-            ax.plot(time, batery)
-            ax.set(xlabel='tempo', ylabel='Bateria (V)',
-                   title="SensiTag: " + local + "\nMAC: " + mac + "\nBateria")
-            ax.grid()
-            # rotate and align the tick labels so they look better
-            fig.autofmt_xdate()
-            fig.savefig(tempDir+mac + "_Bateria.png")
+                fig, ax = plt.subplots()
+                ax.plot(time, batery)
+                ax.set(xlabel='tempo', ylabel='Bateria (V)',
+                       title="SensiTag: " + local + "\nMAC: " + mac + "\nBateria")
+                ax.grid()
+                # rotate and align the tick labels so they look better
+                fig.autofmt_xdate()
+                fig.savefig(tempDir+mac + "_Bateria.png")
