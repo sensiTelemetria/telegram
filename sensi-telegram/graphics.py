@@ -36,7 +36,7 @@ class Graphics:
             connSensi = sqlite3.connect(dataBaseSensiDir)
             cursorSensi = connSensi.cursor()
             # querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1]+ "' order by id desc LIMIT 1"
-            querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1] + "' order by id asc LIMIT " + numberRegs
+            querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1] + "' order by id asc LIMIT " + str(numberRegs)
             cursorSensi.execute(querySet)
             connSensi.commit()
             querySensi = (cursorSensi.fetchall())
