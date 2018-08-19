@@ -112,6 +112,13 @@ def graphicsOneDay(bot, update):
     else:
         user.unauthorized(bot)
 
+def graphics3Day(bot, update):
+    user = Auth(update.message.chat_id, bot)
+    if user.authUser():
+        user.graphics3Day(bot)
+    else:
+        user.unauthorized(bot)
+
 def reboot(bot, update):
     user = Auth(update.message.chat_id, bot)
     if user.authUser():
@@ -146,6 +153,7 @@ def main():
     dp.add_handler(CommandHandler("infoTags", infoTags))
     dp.add_handler(CommandHandler("lastReg", lastReg))
     dp.add_handler(CommandHandler("graphicsOneDay", graphicsOneDay))
+    dp.add_handler(CommandHandler("graphics3Day", graphics3Day))
     dp.add_handler(CommandHandler("alarmsInfo", alarmsInfo))
     dp.add_handler(CommandHandler("reboot", reboot))
 

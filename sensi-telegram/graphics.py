@@ -11,7 +11,7 @@ import matplotlib.dates as mdates
 class Graphics:
 
     def getInfo(self):
-        msg = ', voute enviar os gráficos de suas SensiTags do '
+        msg = ', vou te enviar os gráficos de suas SensiTags dos '
         return  msg
 
     def getSensiTags(self):
