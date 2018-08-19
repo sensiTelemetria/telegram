@@ -1,6 +1,7 @@
 import sqlite3
 from sensiTags import SensiTags
 from settings import dataBaseDjangoDir
+from settings import tempDir
 from help import Help
 from graphics import Graphics
 from alarms import Alarms
@@ -105,7 +106,18 @@ class Auth:
     def graphicsOneDay(self, bot):
         msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "último dia:"
         bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
-        self.graphic.makeGraphic(100, self.chat_id )
+
+        self.graphic.makeGraphicAll(10)
+
+        conn = sqlite3.connect(dataBaseDjangoDir)
+        cursor = conn.cursor()
+        cursor.execute("""SELECT * FROM tags_tag""")
+        conn.commit()
+        query = (cursor.fetchall())
+        for tag in query:
+            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
+            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
+            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
 
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")

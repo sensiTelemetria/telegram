@@ -108,7 +108,6 @@ def graphicsOneDay(bot, update):
     user = Auth(update.message.chat_id, bot)
     if user.authUser():
         user.graphicsOneDay(bot)
-        bot.send_photo(update.message.chat_id, open("teste.png", "rb"))
     else:
         user.unauthorized(bot)
 
