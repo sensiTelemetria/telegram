@@ -57,8 +57,10 @@ class Graphics:
             fig, ax = plt.subplots()
             ax.plot(time, temperature)
             ax.set(xlabel='tempo', ylabel='Temperatura (ºC)',
-                   title= " Tag: " + mac + " - temperatura.png")
+                   title= " Tag: " + mac + " - temperatura\nSensiTags")
             ax.grid()
+            # rotate and align the tick labels so they look better
+            fig.autofmt_xdate()
             fig.savefig(tempDir+mac + "_Temperatura.png")
 
             fig, ax = plt.subplots()
@@ -66,6 +68,8 @@ class Graphics:
             ax.set(xlabel='tempo', ylabel='Umidade (%)',
                    title=" Tag: " + mac + " - Umidade.png")
             ax.grid()
+            # rotate and align the tick labels so they look better
+            fig.autofmt_xdate()
             fig.savefig(tempDir+mac + "_Umidade.png")
 
             fig, ax = plt.subplots()
@@ -73,4 +77,6 @@ class Graphics:
             ax.set(xlabel='tempo', ylabel='Bateria (V)',
                    title=" Tag: " + mac + " - Bateria.png")
             ax.grid()
+            # rotate and align the tick labels so they look better
+            fig.autofmt_xdate()
             fig.savefig(tempDir+mac + "_Bateria.png")
