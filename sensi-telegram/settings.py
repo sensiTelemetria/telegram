@@ -20,7 +20,7 @@ site = 'www.sensitelemetria.com'
 siteConfig = "192.168.1.2:8000"
 
 #time out das leiturass das sensiTags
-timeout_in_sec = 60
+timeout_in_sec = 280
 
 #intervalo para busca das variáveis
-DataInterval = 120
+DataInterval = 300

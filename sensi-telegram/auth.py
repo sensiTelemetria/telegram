@@ -97,17 +97,17 @@ class Auth:
 
         for user in query:
             if user[1] != self.name:
-                msg = user[1] + ", o usuário *"+self.name+"* pediu para o sistema ser reiniciado. Todos os usuários foram notificados.\n\nJá já estou de volta!"
+                msg ="*" + user[1] + "*, o usuário *"+self.name+"* pediu para o sistema ser reiniciado. Todos os usuários foram notificados.\n\nJá já estou de volta!"
                 bot.send_message(user[4], msg , parse_mode="markdown" )
         msg = self.name + ", vc pediu para o sistema ser reiniciado. Todos os usuários foram notificados.\n\nJá já estou de volta!"
         bot.send_message(self.chat_id, msg, parse_mode="markdown")
         os.system("sudo reboot")
 
     def graphicsOneDay(self, bot):
-        msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "últimos 1 dia. Lembrando que os gráficos devem demorar alguns segundos para chegar!"
+        msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "do último dia. Lembrando que os gráficos devem demorar alguns segundos para chegar!"
         bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
 
-        self.graphic.makeGraphicAll(200)
+        self.graphic.makeGraphicAll(288)
 
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
@@ -122,10 +122,10 @@ class Auth:
             bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
 
     def graphics3Day(self, bot):
-        msgGraphics ="Olá " + self.name + self.graphic.getInfo() + "últimos 3 dia. Lembrando que os gráficos devem demorar alguns segundos para chegar!"
+        msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "dos últimos 3 dias. Lembrando que os gráficos devem demorar alguns minutinhos para chegar :)"
         bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
 
-        self.graphic.makeGraphicAll(600)
+        self.graphic.makeGraphicAll(400)
 
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
