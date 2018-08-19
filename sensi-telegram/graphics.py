@@ -6,6 +6,7 @@ import numpy as np
 from settings import tempDir, dataBaseDjangoDir, dataBaseSensiDir
 import sqlite3
 import datetime
+import matplotlib.dates as mdates
 
 class Graphics:
 
@@ -60,8 +61,9 @@ class Graphics:
                 fig, ax = plt.subplots()
                 ax.plot(time, temperature)
                 ax.set(xlabel='tempo', ylabel='Temperatura (ºC)',
-                       title= "SensiTag: " + local + "\nMAC: " + mac + "\nTemperatura")
+                       title= "SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
                 ax.grid()
+                ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                 # rotate and align the tick labels so they look better
                 fig.autofmt_xdate()
                 fig.savefig(tempDir+mac + "_Temperatura.png")
@@ -69,8 +71,9 @@ class Graphics:
                 fig, ax = plt.subplots()
                 ax.plot(time, humidity)
                 ax.set(xlabel='tempo', ylabel='Umidade (%)',
-                       title="SensiTag: " + local + "\nMAC: " + mac + "\nUmidade")
+                       title="SensiTag: " + local + " - MAC: " + mac + "\nUmidade")
                 ax.grid()
+                ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                 # rotate and align the tick labels so they look better
                 fig.autofmt_xdate()
                 fig.savefig(tempDir+mac + "_Umidade.png")
@@ -78,8 +81,9 @@ class Graphics:
                 fig, ax = plt.subplots()
                 ax.plot(time, batery)
                 ax.set(xlabel='tempo', ylabel='Bateria (V)',
-                       title="SensiTag: " + local + "\nMAC: " + mac + "\nBateria")
+                       title="SensiTag: " + local + " - MAC: " + mac + "\nBateria")
                 ax.grid()
+                ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                 # rotate and align the tick labels so they look better
                 fig.autofmt_xdate()
                 fig.savefig(tempDir+mac + "_Bateria.png")

@@ -115,7 +115,7 @@ class Auth:
         conn.commit()
         query = (cursor.fetchall())
         for tag in query:
-            msgTag = tag[2]
+            msgTag = "SensiTag: " + tag[2] + " e MAC: " + tag[1]
             bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
             bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
             bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
