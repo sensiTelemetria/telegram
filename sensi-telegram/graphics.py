@@ -59,6 +59,9 @@ class Graphics:
 
             if len(querySensi) > 0:
                 fig, ax = plt.subplots()
+
+                plt.close('all')
+                
                 ax.plot(time, temperature)
                 ax.set( ylabel='Temperatura (ºC)',
                        title= "SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")

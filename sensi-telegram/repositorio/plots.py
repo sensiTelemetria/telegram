@@ -22,5 +22,5 @@ plt.setp([a.get_xticklabels() for a in axarr[0, :]], visible=False)
 plt.setp([a.get_yticklabels() for a in axarr[:, 1]], visible=False)
 
 
-plt.show()
+#plt.show()
 f.savefig('foo.png')
