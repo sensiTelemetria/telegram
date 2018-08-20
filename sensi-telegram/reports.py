@@ -3,7 +3,7 @@ matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 import sqlite3
-from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec, tempDir, nameCompany, nameCompany, site
+from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec, tempDir, nameCompany, site, logoSensi
 import os
 import datetime
 import matplotlib.dates as mdates

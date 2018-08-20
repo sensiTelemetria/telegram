@@ -14,7 +14,7 @@ local = 'HUCAM'
 #dados sobre a sensi
 nameCompany = 'Sensi telemetria'
 owners = {1:['Willian ferreira', '(27) 9999-9999'],2:['Talles D. de S. Valiatti','(27) 9999-9999']}
-c = 'www.sensitelemetria.com'
+site = 'www.sensitelemetria.com'
 logoSensi = "assets/logo.png"
 
 
