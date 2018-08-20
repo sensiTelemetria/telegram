@@ -19,14 +19,14 @@ class Reports:
     def reportOneDayAll(self, bot,name, chat_id, email, numberRegs):
 
         date = datetime.datetime.now()
-        
+
         doc1 = SimpleDocTemplate(tempDir+"oi.pdf", pagesize=A4,
                                 rightMargin=72, leftMargin=72,
                                 topMargin=72, bottomMargin=18)
         oit = []
         im1 = Image(logoSensi, 7 * cm, 7 * cm)
         oit.append(im1)
-        doc1.build(oit)
+
 
         pdfName = "relatorio_1dia_" + str(date.day)+"/" + str(date.month)+"/" + str(date.year)+"_" + str(date.hour) + ":" + str(date.minute)
         print(tempDir+pdfName+".pdf")
@@ -163,4 +163,7 @@ class Reports:
                 bot.send_message(chat_id, msgTag, parse_mode="markdown")
 
         doc.build(Story)
+        doc1.build(oit)
         bot.send_document(chat_id, open(tempDir+pdfName+".pdf", "rb"))
+        bot.send_document(chat_id, open(tempDir+"oi.pdf", "rb"))
+        os.system("rm " + tempDir + "*.png")
