@@ -29,7 +29,7 @@ full_name = "Mike Driscoll"
 address_parts = ["411 State St.", "Marshalltown, IA 50158"]
 
 #LOGO
-im = Image(logo, 8 * cm, 7 * cm )
+im = Image(logo, 7 * cm, 7 * cm )
 Story.append(im)
 
 styles = getSampleStyleSheet()

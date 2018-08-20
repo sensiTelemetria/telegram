@@ -5,6 +5,7 @@ from settings import tempDir
 from help import Help
 from graphics import Graphics
 from alarms import Alarms
+from reports import Reports
 import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
@@ -16,6 +17,7 @@ class Auth:
     help = None
     tags = None
     alarms = None
+    email = None
 
     def __init__(self, chat_id, bot ):
         conn = sqlite3.connect(dataBaseDjangoDir)
@@ -26,10 +28,12 @@ class Auth:
         for user in query:
             if user[4] == chat_id:
                 self.name = user[1]
+                self.email = user[4]
                 self.authorize = True
                 self.help = Help(chat_id)
                 self.sensiTags = SensiTags(bot)
                 self.graphic = Graphics()
+                self.report = Reports()
         self.chat_id = chat_id
 
 
@@ -150,3 +154,16 @@ class Auth:
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")
 
+    def reportOneDay(self, bot):
+        conn = sqlite3.connect(dataBaseDjangoDir)
+        cursor = conn.cursor()
+        cursor.execute("""SELECT * FROM tags_tag""")
+        conn.commit()
+        query = (cursor.fetchall())
+        # trata se não existir SensiTags
+        if len(query) > 0:
+            msgGraphics = "Ei, *" + self.name + "*!\nEstou te enviando o relatório completo de suas SensiTags dos últimos 1 dias. Lembrando que os isso pode demorar alguns minutinhos para chegar :)"
+            bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
+            self.report.reportOneDayAll(bot, self.chat_id, self.email)
+        else:
+            bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
