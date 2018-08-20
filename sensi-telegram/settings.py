@@ -15,7 +15,8 @@ local = 'HUCAM'
 nameCompany = 'Sensi telemetria'
 owners = {1:['Willian ferreira', '(27) 9999-9999'],2:['Talles D. de S. Valiatti','(27) 9999-9999']}
 site = 'www.sensitelemetria.com'
-logoSensi = "assets/logo.png"
+assets = '/home/pi/Desktop/telegram/sensi-telegram/assets/'
+logoSensi = assets + "logo.png"
 
 
 #django
