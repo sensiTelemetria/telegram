@@ -75,6 +75,7 @@ def echo(bot, update):
 
 def error(bot, update, error):
     """Log Errors caused by Updates."""
+    bot.send_message(update.message.chat_id, "Ops!\nParece que tivemos um probleminha!\nTente Denovo!", parse_mode="markdown")
     logger.warning('Update "%s" caused error "%s"', update, error)
 
 def infoUsers(bot, update):
