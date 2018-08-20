@@ -28,10 +28,8 @@ class Reports:
         Story = []
 
         dateNow = str(date.day)+"/" + str(date.month)+"/" + str(date.year)+" - " + str(date.hour) + ":" + str(date.minute)
-        nomeRelatorio = "relat 1"
-        qtdSensiTags = str(10)
 
-        im = Image(tempDir+logoSensi, 7 * cm, 7 * cm)
+        im = Image(logoSensi, 7 * cm, 7 * cm)
         Story.append(im)
 
         styles = getSampleStyleSheet()
@@ -139,17 +137,17 @@ class Reports:
                 Story.append(PageBreak())
                 im = Image(tempDir + mac + "_Temperatura_reportAll1day.png", 20 * cm, 15 * cm)
                 Story.append(im)
-                os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
+                #os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
 
                 Story.append(PageBreak())
                 im = Image(tempDir + str(mac) + "_Umidade_reportAll1day.png", 20 * cm, 15 * cm)
                 Story.append(im)
-                os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
+                #os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
 
                 Story.append(PageBreak())
                 im = Image(tempDir + str(mac) + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
                 Story.append(im)
-                os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png")
+                #os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png")
             else:
                 msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
                 bot.send_message(chat_id, msgTag, parse_mode="markdown")
