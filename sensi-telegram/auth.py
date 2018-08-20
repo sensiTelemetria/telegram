@@ -115,14 +115,15 @@ class Auth:
             bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
 
             self.graphic.makeGraphicAll(288)
-
-
             for tag in query:
                 msgTag = "SensiTag: " + tag[2] + "\nMAC: " + tag[1]
                 bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
                 bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
+                os.system("rm " + tempDir+str(tag[1])+"_Temperatura.png" )
                 bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
+                os.system("rm " + tempDir + str(tag[1]) + "_Umidade.png")
                 bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
+                os.system("rm " + tempDir + str(tag[1]) + "_Bateria.png")
         else:
             bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
 
@@ -143,9 +144,12 @@ class Auth:
             for tag in query:
                 msgTag = "SensiTag: " + tag[2] + "\nMAC: " + tag[1]
                 bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
-                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
-                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
-                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
+                bot.send_photo(self.chat_id, open(tempDir + str(tag[1]) + "_Temperatura.png", "rb"))
+                os.system("rm " + tempDir + str(tag[1]) + "_Temperatura.png")
+                bot.send_photo(self.chat_id, open(tempDir + str(tag[1]) + "_Umidade.png", "rb"))
+                os.system("rm " + tempDir + str(tag[1]) + "_Umidade.png")
+                bot.send_photo(self.chat_id, open(tempDir + str(tag[1]) + "_Bateria.png", "rb"))
+                os.system("rm " + tempDir + str(tag[1]) + "_Bateria.png")
         else:
             bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
 

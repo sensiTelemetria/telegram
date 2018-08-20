@@ -5,7 +5,7 @@ dataBaseDjangoDir = '/home/pi/Desktop/Django/SensiProject/db.sqlite3'
 dataBaseSensiDir = '/home/pi/Desktop/sensi.db'
 
 #path dos arquivos temporários
-tempDir = '/home/pi/Desktop/temp/'
+tempDir = '/home/pi/Desktop/'
 
 #dados sobre o cliente/
 name = 'banco de sangue'
