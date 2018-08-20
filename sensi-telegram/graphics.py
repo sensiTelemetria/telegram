@@ -104,5 +104,5 @@ class Graphics:
                 bot.send_photo(chat_id, open(tempDir + str(mac) + "_Bateria.png", "rb"))
                 os.system("rm " + tempDir + str(mac) + "_Bateria.png")
             else:
-                msgTag = "Ei, não achei registros da SensiTag com MAC: *"+mac+"*."
+                msgTag = "Ei, não achei registros da SensiTag: *"+ local + "* com MAC: *"+mac+"*."
                 bot.send_message(chat_id, msgTag, parse_mode="markdown")

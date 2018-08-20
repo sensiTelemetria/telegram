@@ -132,6 +132,21 @@ class Auth:
         else:
             bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
 
+    def graphicsOneWeek(self, bot):
+        conn = sqlite3.connect(dataBaseDjangoDir)
+        cursor = conn.cursor()
+        cursor.execute("""SELECT * FROM tags_tag""")
+        conn.commit()
+        query = (cursor.fetchall())
+        #trata se não existir SensiTags
+        if len(query)>0:
+            msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "dos últimos 7 dias. Lembrando que os gráficos devem demorar alguns minutinhos para chegar :)"
+            bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
+            self.graphic.makeAndSendGraphicAll(2016, bot, self.chat_id)
+        else:
+            bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
+
+
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")
 

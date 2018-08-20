@@ -19,7 +19,8 @@ class Help:
         msghelp = msghelp + "\n\n*--- GRÁFICOS ---*"
         msghelp = msghelp +"\n\n*->* /lastReg -" + " Para obter os últimos registros de suas SensiTags em números"
         msghelp = msghelp +"\n\n*->* /graphicsOneDay -" + " Para receber os gráficos das suas SensiTags do último dia"
-        msghelp = msghelp +"\n\n*->* /graphics3Day -" + " Para receber os gráficos das suas SensiTags dos últimos 3 dia"
+        msghelp = msghelp +"\n\n*->* /graphics3Day -" + " Para receber os gráficos das suas SensiTags dos últimos 3 dias"
+        msghelp = msghelp +"\n\n*->* /graphicsOneWeek -" + " Para receber os gráficos das suas SensiTags dos últimos 7 dias"
 
         msghelp = msghelp + "\n\n*--- ALARMES ---*"
         msghelp = msghelp + "\n\n*->* /alarmsInfo -" + " Para saber mais sobre os alarmes do sistema"
