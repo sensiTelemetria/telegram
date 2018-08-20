@@ -10,7 +10,7 @@ import matplotlib.dates as mdates
 
 class Reports:
 
-    def reportOneDayAll(self, bot, chat_id, email):
+    def reportOneDayAll(self, bot, chat_id, email, numberRegs):
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
