@@ -113,17 +113,7 @@ class Auth:
         if len(query) > 0:
             msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "do último dia. Lembrando que os gráficos devem demorar alguns segundos para chegar!"
             bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
-
-            self.graphic.makeGraphicAll(288)
-            for tag in query:
-                msgTag = "SensiTag: " + tag[2] + "\nMAC: " + tag[1]
-                bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
-                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
-                os.system("rm " + tempDir+str(tag[1])+"_Temperatura.png" )
-                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
-                os.system("rm " + tempDir + str(tag[1]) + "_Umidade.png")
-                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
-                os.system("rm " + tempDir + str(tag[1]) + "_Bateria.png")
+            self.graphic.makeAndSendGraphicAll(288)
         else:
             bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
 
