@@ -7,6 +7,7 @@ from settings import tempDir, dataBaseDjangoDir, dataBaseSensiDir
 import sqlite3
 import datetime
 import matplotlib.dates as mdates
+import os
 
 class Graphics:
 
@@ -22,7 +23,7 @@ class Graphics:
         query = (cursor.fetchall())
         return query
 
-    def makeGraphicAll(self, numberRegs):
+    def makeGraphicAll(self, numberRegs, bot, chat_id):
 
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
@@ -94,7 +95,12 @@ class Graphics:
                 fig.autofmt_xdate()
                 fig.savefig(tempDir + mac + "_Bateria.png")
 
-                #retorna  caso sejam feitos os gráficos
-            else:
-                return 0
-        return 1
+                #envio de gráficos por SensiTags
+                msgTag = "SensiTag: " + local + "\nMAC: " + mac
+                bot.send_message(chat_id, msgTag, parse_mode="markdown")
+                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Temperatura.png", "rb"))
+                os.system("rm " + tempDir + str(mac) + "_Temperatura.png")
+                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Umidade.png", "rb"))
+                os.system("rm " + tempDir + str(mac) + "_Umidade.png")
+                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Bateria.png", "rb"))
+                os.system("rm " + tempDir + str(mac) + "_Bateria.png")
