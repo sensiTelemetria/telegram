@@ -19,7 +19,17 @@ class Reports:
     def reportOneDayAll(self, bot,name, chat_id, email, numberRegs):
 
         date = datetime.datetime.now()
-        pdfName = "relatorio_1dia_" + name + "_" + str(date.day)+"/" + str(date.month)+"/" + str(date.year)+"_" + str(date.hour) + ":" + str(date.minute)
+        
+        doc1 = SimpleDocTemplate(tempDir+"oi.pdf", pagesize=A4,
+                                rightMargin=72, leftMargin=72,
+                                topMargin=72, bottomMargin=18)
+        oit = []
+        im1 = Image(logoSensi, 7 * cm, 7 * cm)
+        oit.append(im1)
+        doc1.build(oit)
+
+        pdfName = "relatorio_1dia_" + str(date.day)+"/" + str(date.month)+"/" + str(date.year)+"_" + str(date.hour) + ":" + str(date.minute)
+        print(tempDir+pdfName+".pdf")
         doc = SimpleDocTemplate(tempDir+pdfName+".pdf", pagesize=A4,
                                 rightMargin=72, leftMargin=72,
                                 topMargin=72, bottomMargin=18)
