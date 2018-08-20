@@ -3,14 +3,67 @@ matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 import sqlite3
-from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec, tempDir
+from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec, tempDir, nameCompany, nameCompany, site
 import os
 import datetime
 import matplotlib.dates as mdates
+import time
+from reportlab.lib.enums import TA_JUSTIFY,TA_CENTER
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import inch, cm
 
 class Reports:
 
-    def reportOneDayAll(self, bot, chat_id, email, numberRegs):
+    def reportOneDayAll(self, bot,name, chat_id, email, numberRegs):
+
+        date = datetime.datetime.now()
+        pdfName = "relatorio_1dia_" + name + "_" + str(date.day)+"/" + str(date.month)+"/" + str(date.year)+"_" + str(date.hour) + ":" + str(date.minute)
+        doc = SimpleDocTemplate(tempDir+pdfName+".pdf", pagesize=A4,
+                                rightMargin=72, leftMargin=72,
+                                topMargin=72, bottomMargin=18)
+
+        # dados sensi para pdf
+        Story = []
+
+        dateNow = str(date.day)+"/" + str(date.month)+"/" + str(date.year)+" - " + str(date.hour) + ":" + str(date.minute)
+        nomeRelatorio = "relat 1"
+        qtdSensiTags = str(10)
+
+        im = Image(tempDir+logoSensi, 7 * cm, 7 * cm)
+        Story.append(im)
+
+        styles = getSampleStyleSheet()
+        styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+        styles.add(ParagraphStyle(name='center', alignment=TA_CENTER))
+
+
+
+        # SENSI
+        ptext = '<font size=14>%s</font>' % nameCompany
+        Story.append(Paragraph(ptext, styles["center"]))
+        Story.append(Spacer(1, 12))
+
+        # SENSI site
+        ptext = '<font size=14>%s</font>' % site
+        Story.append(Paragraph(ptext, styles["center"]))
+        Story.append(Spacer(1, 36))
+
+        # DADOS RELATORIOS
+
+        ptext = '<font size=14>Data: %s</font>' % dateNow
+        Story.append(Paragraph(ptext, styles["Justify"]))
+        Story.append(Spacer(1, 12))
+
+        ptext = '<font size=14>Usuário: %s</font>' % name
+        Story.append(Paragraph(ptext, styles["Justify"]))
+        Story.append(Spacer(1, 12))
+
+        ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no període de 24 horas</font>'
+        Story.append(Paragraph(ptext, styles["Justify"]))
+        Story.append(Spacer(1, 12))
+
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
@@ -83,14 +136,23 @@ class Reports:
                 fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png")
 
                 # envio de gráficos por SensiTags
-                msgTag = "SensiTag: " + local + "\nMAC: " + mac
-                bot.send_message(chat_id, msgTag, parse_mode="markdown")
-                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Temperatura_reportAll1day.png", "rb"))
+                Story.append(PageBreak())
+                im = Image(tempDir + mac + "_Temperatura_reportAll1day.png", 20 * cm, 15 * cm)
+                Story.append(im)
                 os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
-                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Umidade_reportAll1day.png", "rb"))
-                os.system("rm " + tempDir + str(mac) + "_Umidade.png")
-                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Bateria_reportAll1day.png", "rb"))
+
+                Story.append(PageBreak())
+                im = Image(tempDir + str(mac) + "_Umidade_reportAll1day.png", 20 * cm, 15 * cm)
+                Story.append(im)
+                os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
+
+                Story.append(PageBreak())
+                im = Image(tempDir + str(mac) + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
+                Story.append(im)
                 os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png")
             else:
                 msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
                 bot.send_message(chat_id, msgTag, parse_mode="markdown")
+
+        doc.build(Story)
+        bot.send_document(chat_id, open(tempDir+pdfName+".pdf", "rb"))

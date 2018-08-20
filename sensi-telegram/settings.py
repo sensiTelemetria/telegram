@@ -12,9 +12,11 @@ name = 'banco de sangue'
 local = 'HUCAM'
 
 #dados sobre a sensi
-nameCompany = 'sensi telemetria'
+nameCompany = 'Sensi telemetria'
 owners = {1:['Willian ferreira', '(27) 9999-9999'],2:['Talles D. de S. Valiatti','(27) 9999-9999']}
-site = 'www.sensitelemetria.com'
+c = 'www.sensitelemetria.com'
+logoSensi = "assets/logo.png"
+
 
 #django
 siteConfig = "192.168.1.2:8000"
