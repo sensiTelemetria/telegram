@@ -58,10 +58,10 @@ class Graphics:
             # Data for plotting
 
             if len(querySensi) > 0:
+
+                #grfico de temperatura
                 fig, ax = plt.subplots()
-
                 plt.close('all')
-
                 ax.plot(time, temperature)
                 ax.set( ylabel='Temperatura (ºC)',
                        title= "SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
@@ -72,6 +72,7 @@ class Graphics:
                 fig.savefig(tempDir+mac + "_Temperatura.png")
                 print(tempDir+mac + "_Temperatura.png")
 
+                #grfico de umidade
                 fig, ax = plt.subplots()
                 ax.plot(time, humidity)
                 ax.set( ylabel='Umidade (%)',
@@ -82,6 +83,7 @@ class Graphics:
                 fig.autofmt_xdate()
                 fig.savefig(tempDir+mac + "_Umidade.png")
 
+                #grfico de bateria
                 fig, ax = plt.subplots()
                 ax.plot(time, batery)
                 ax.set(ylabel='Bateria (V)',
@@ -91,3 +93,8 @@ class Graphics:
                 # rotate and align the tick labels so they look better
                 fig.autofmt_xdate()
                 fig.savefig(tempDir + mac + "_Bateria.png")
+
+                #retorna  caso sejam feitos os gráficos
+            else:
+                return 0
+        return 1
