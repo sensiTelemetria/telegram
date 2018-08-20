@@ -122,22 +122,28 @@ class Auth:
             bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
 
     def graphics3Day(self, bot):
-        msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "dos últimos 3 dias. Lembrando que os gráficos devem demorar alguns minutinhos para chegar :)"
-        bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
-
-        self.graphic.makeGraphicAll(400)
 
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
-        for tag in query:
-            msgTag = "SensiTag: " + tag[2] + "\nMAC: " + tag[1]
-            bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
-            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
-            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
-            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
+        query = []
+        #trata se não existir SensiTags
+        if len(query)>0:
+            msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "dos últimos 3 dias. Lembrando que os gráficos devem demorar alguns minutinhos para chegar :)"
+            bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
+
+            self.graphic.makeGraphicAll(700)
+
+            for tag in query:
+                msgTag = "SensiTag: " + tag[2] + "\nMAC: " + tag[1]
+                bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
+                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
+                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
+                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
+        else:
+            bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
 
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")

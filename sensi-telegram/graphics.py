@@ -61,7 +61,7 @@ class Graphics:
                 fig, ax = plt.subplots()
 
                 plt.close('all')
-                
+
                 ax.plot(time, temperature)
                 ax.set( ylabel='Temperatura (ºC)',
                        title= "SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
