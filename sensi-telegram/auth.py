@@ -104,22 +104,27 @@ class Auth:
         os.system("sudo reboot")
 
     def graphicsOneDay(self, bot):
-        msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "do último dia. Lembrando que os gráficos devem demorar alguns segundos para chegar!"
-        bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
-
-        self.graphic.makeGraphicAll(288)
-
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
-        for tag in query:
-            msgTag = "SensiTag: " + tag[2] + "\nMAC: " + tag[1]
-            bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
-            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
-            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
-            bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
+        # trata se não existir SensiTags
+        if len(query) > 0:
+            msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "do último dia. Lembrando que os gráficos devem demorar alguns segundos para chegar!"
+            bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
+
+            self.graphic.makeGraphicAll(288)
+
+
+            for tag in query:
+                msgTag = "SensiTag: " + tag[2] + "\nMAC: " + tag[1]
+                bot.send_message(self.chat_id, msgTag, parse_mode="markdown")
+                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Temperatura.png", "rb"))
+                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Umidade.png", "rb"))
+                bot.send_photo(self.chat_id, open(tempDir+str(tag[1])+"_Bateria.png", "rb"))
+        else:
+            bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
 
     def graphics3Day(self, bot):
 
@@ -128,7 +133,6 @@ class Auth:
         cursor.execute("""SELECT * FROM tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
-        query = []
         #trata se não existir SensiTags
         if len(query)>0:
             msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "dos últimos 3 dias. Lembrando que os gráficos devem demorar alguns minutinhos para chegar :)"
