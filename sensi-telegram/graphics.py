@@ -74,6 +74,7 @@ class Graphics:
 
                 #grfico de umidade
                 fig, ax = plt.subplots()
+                plt.close('all')
                 ax.plot(time, humidity)
                 ax.set( ylabel='Umidade (%)',
                        title="SensiTag: " + local + " - MAC: " + mac + "\nUmidade")
@@ -85,6 +86,7 @@ class Graphics:
 
                 #grfico de bateria
                 fig, ax = plt.subplots()
+                plt.close('all')
                 ax.plot(time, batery)
                 ax.set(ylabel='Bateria (V)',
                        title="SensiTag: " + local + " - MAC: " + mac + "\nBateria")
