@@ -70,6 +70,7 @@ class Graphics:
                 # rotate and align the tick labels so they look better
                 fig.autofmt_xdate()
                 fig.savefig(tempDir+mac + "_Temperatura.png")
+                print(tempDir+mac + "_Temperatura.png")
 
                 fig, ax = plt.subplots()
                 ax.plot(time, humidity)
@@ -89,4 +90,4 @@ class Graphics:
                 ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                 # rotate and align the tick labels so they look better
                 fig.autofmt_xdate()
-                fig.savefig(tempDir+mac + "_Bateria.png")
+                fig.savefig(tempDir + mac + "_Bateria.png")
