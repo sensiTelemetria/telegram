@@ -71,7 +71,6 @@ class Graphics:
                 # rotate and align the tick labels so they look better
                 fig.autofmt_xdate()
                 fig.savefig(tempDir+mac + "_Temperatura.png")
-                print(tempDir+mac + "_Temperatura.png")
 
                 #grfico de umidade
                 fig, ax = plt.subplots()

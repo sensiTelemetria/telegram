@@ -113,7 +113,7 @@ class Auth:
         if len(query) > 0:
             msgGraphics ="Olá *" + self.name +"*"+ self.graphic.getInfo() + "do último dia. Lembrando que os gráficos devem demorar alguns segundos para chegar!"
             bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
-            self.graphic.makeAndSendGraphicAll(288)
+            self.graphic.makeAndSendGraphicAll(288, bot, self.chat_id)
         else:
             bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
 
