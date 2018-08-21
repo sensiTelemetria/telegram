@@ -21,7 +21,9 @@ from sensiTags import SensiTags
 import sqlite3
 from sensiTags import SensiTags
 from settings import dataBaseDjangoDir
-from settings import DataInterval
+from settings import DataInterval, reportOneDayAllInterval
+from reports import Reports
+import os
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -153,6 +155,10 @@ def getData(bot, job):
     sensiTags = SensiTags(bot)
     sensiTags.getData()
 
+def makeReportOneDayAll(bot, job):
+    report = Reports()
+    report.makeReportOneDayAll(288)
+
 def main():
     """Start the bot."""
     # Create the EventHandler and pass it your bot's token.
@@ -184,6 +190,7 @@ def main():
     j = updater.job_queue
     j.run_once(systemInit, 0)
     j.run_repeating(getData, interval=DataInterval, first=0)
+    j.run_repeating(makeReportOneDayAll, interval=reportOneDayAllInterval, first=0)
 
 
    # os.system('/home/pi/sensi/bin/python3.6 /home/pi/Desktop/telegram/sensi-telegram/specified_tags.py & ')

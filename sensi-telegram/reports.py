@@ -16,144 +16,152 @@ from reportlab.lib.units import inch, cm
 
 class Reports:
 
-    def reportOneDayAll(self, bot,name, chat_id, email, numberRegs):
+    def makeReportOneDayAll(self, numberRegs):
 
+        print('\ncomeçandooooooo\n')
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
         conn.commit()
         query = (cursor.fetchall())
-        for tag in query:
+        # trata se não existir SensiTags
+        if len(query) > 0:
+            date = datetime.datetime.now()
+            pdfName = "ReportOneDayAll"
+            dir = tempDir + pdfName + ".pdf"
+            print(dir)
+            doc = SimpleDocTemplate(dir, pagesize=A4,
+                                    rightMargin=72, leftMargin=72,
+                                    topMargin=72, bottomMargin=18)
+            # dados sensi para pdf
+            Story = []
+            dateNow = str(date.day) + "/" + str(date.month) + "/" + str(date.year) + " - " + str(
+                date.hour) + ":" + str(date.minute)
 
-            time = []
-            batery = []
-            humidity = []
-            temperature = []
-            mac = ''
+            im = Image(logoSensi, 7 * cm, 7 * cm)
+            Story.append(im)
 
-            connSensi = sqlite3.connect(dataBaseSensiDir)
-            cursorSensi = connSensi.cursor()
-            # querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1]+ "' order by id desc LIMIT 1"
-            querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1] + "' order by id desc LIMIT " + str(numberRegs)
-            cursorSensi.execute(querySet)
-            connSensi.commit()
-            querySensi = (cursorSensi.fetchall())
+            styles = getSampleStyleSheet()
+            styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+            styles.add(ParagraphStyle(name='center', alignment=TA_CENTER))
 
-            mac = tag[1]
-            local = tag[2]
+            # SENSI
+            ptext = '<font size=14>%s</font>' % nameCompany
+            Story.append(Paragraph(ptext, styles["center"]))
+            Story.append(Spacer(1, 12))
 
-            for reg in querySensi:
-                if len(reg) != 0:
-                    temperature.append(reg[3])
-                    humidity.append(reg[4])
-                    batery.append(float(reg[2] / 1000))
-                    date = datetime.datetime(reg[5], reg[6], reg[7], reg[8], reg[9], reg[10], )
-                    time.append(date)
-            # Data for plotting
+            # SENSI site
+            ptext = '<font size=14>%s</font>' % site
+            Story.append(Paragraph(ptext, styles["center"]))
+            Story.append(Spacer(1, 36))
 
-            if len(querySensi) > 0:
+            # DADOS RELATORIOS
 
-                date = datetime.datetime.now()
-                pdfName = "relatorio_1dia_" + str(date.day) + "_" + str(date.month) + "_" + str(date.year) + "_" + str(date.hour) + "_" + str(date.minute)
-                dir = tempDir + pdfName + ".pdf"
-                print(dir)
-                doc = SimpleDocTemplate(dir, pagesize=A4,
-                                        rightMargin=72, leftMargin=72,
-                                        topMargin=72, bottomMargin=18)
-                # dados sensi para pdf
-                Story = []
-                dateNow = str(date.day) + "/" + str(date.month) + "/" + str(date.year) + " - " + str(
-                    date.hour) + ":" + str(date.minute)
+            ptext = '<font size=14>Data: %s</font>' % dateNow
+            Story.append(Paragraph(ptext, styles["Justify"]))
+            Story.append(Spacer(1, 12))
 
-                im = Image(logoSensi, 7 * cm, 7 * cm)
-                Story.append(im)
 
-                styles = getSampleStyleSheet()
-                styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
-                styles.add(ParagraphStyle(name='center', alignment=TA_CENTER))
+            ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no període de 24 horas</font>'
+            Story.append(Paragraph(ptext, styles["Justify"]))
+            Story.append(Spacer(1, 12))
 
-                # SENSI
-                ptext = '<font size=14>%s</font>' % nameCompany
-                Story.append(Paragraph(ptext, styles["center"]))
-                Story.append(Spacer(1, 12))
+            conn = sqlite3.connect(dataBaseDjangoDir)
+            cursor = conn.cursor()
+            cursor.execute("""SELECT * FROM tags_tag""")
+            conn.commit()
+            query = (cursor.fetchall())
+            for tag in query:
 
-                # SENSI site
-                ptext = '<font size=14>%s</font>' % site
-                Story.append(Paragraph(ptext, styles["center"]))
-                Story.append(Spacer(1, 36))
+                time = []
+                batery = []
+                humidity = []
+                temperature = []
+                mac = ''
 
-                # DADOS RELATORIOS
+                connSensi = sqlite3.connect(dataBaseSensiDir)
+                cursorSensi = connSensi.cursor()
+                # querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1]+ "' order by id desc LIMIT 1"
+                querySet = "SELECT * FROM reg WHERE MAC = '" + tag[1] + "' order by id desc LIMIT " + str(numberRegs)
+                cursorSensi.execute(querySet)
+                connSensi.commit()
+                querySensi = (cursorSensi.fetchall())
 
-                ptext = '<font size=14>Data: %s</font>' % dateNow
-                Story.append(Paragraph(ptext, styles["Justify"]))
-                Story.append(Spacer(1, 12))
+                mac = tag[1]
+                local = tag[2]
 
-                ptext = '<font size=14>Usuário: %s</font>' % name
-                Story.append(Paragraph(ptext, styles["Justify"]))
-                Story.append(Spacer(1, 12))
+                for reg in querySensi:
+                    if len(reg) != 0:
+                        temperature.append(reg[3])
+                        humidity.append(reg[4])
+                        batery.append(float(reg[2] / 1000))
+                        date = datetime.datetime(reg[5], reg[6], reg[7], reg[8], reg[9], reg[10], )
+                        time.append(date)
+                # Data for plotting
 
-                ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no període de 24 horas</font>'
-                Story.append(Paragraph(ptext, styles["Justify"]))
-                Story.append(Spacer(1, 12))
+                if len(querySensi) > 0:
+                    # grfico de temperatura
+                    fig, ax = plt.subplots()
+                    plt.close('all')
+                    ax.plot(time, temperature)
+                    ax.set(ylabel='Temperatura (ºC)',
+                           title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
+                    ax.grid()
+                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
+                    # rotate and align the tick labels so they look better
+                    fig.autofmt_xdate()
+                    fig.savefig(tempDir + mac + "_Temperatura_reportAll1day.png")
 
-                # grfico de temperatura
-                fig, ax = plt.subplots()
-                plt.close('all')
-                ax.plot(time, temperature)
-                ax.set(ylabel='Temperatura (ºC)',
-                       title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
-                ax.grid()
-                ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
-                # rotate and align the tick labels so they look better
-                fig.autofmt_xdate()
-                fig.savefig(tempDir + mac + "_Temperatura_reportAll1day.png")
+                    # grfico de umidade
+                    fig, ax = plt.subplots()
+                    plt.close('all')
+                    ax.plot(time, humidity)
+                    ax.set(ylabel='Umidade (%)',
+                           title="SensiTag: " + local + " - MAC: " + mac + "\nUmidade")
+                    ax.grid()
+                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
+                    # rotate and align the tick labels so they look better
+                    fig.autofmt_xdate()
+                    fig.savefig(tempDir + mac + "_Umidade_reportAll1day.png")
 
-                # grfico de umidade
-                fig, ax = plt.subplots()
-                plt.close('all')
-                ax.plot(time, humidity)
-                ax.set(ylabel='Umidade (%)',
-                       title="SensiTag: " + local + " - MAC: " + mac + "\nUmidade")
-                ax.grid()
-                ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
-                # rotate and align the tick labels so they look better
-                fig.autofmt_xdate()
-                fig.savefig(tempDir + mac + "_Umidade_reportAll1day.png")
+                    # grfico de bateria
+                    fig, ax = plt.subplots()
+                    plt.close('all')
+                    ax.plot(time, batery)
+                    ax.set(ylabel='Bateria (V)',
+                           title="SensiTag: " + local + " - MAC: " + mac + "\nBateria")
+                    ax.grid()
+                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
+                    # rotate and align the tick labels so they look better
+                    fig.autofmt_xdate()
+                    fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png")
 
-                # grfico de bateria
-                fig, ax = plt.subplots()
-                plt.close('all')
-                ax.plot(time, batery)
-                ax.set(ylabel='Bateria (V)',
-                       title="SensiTag: " + local + " - MAC: " + mac + "\nBateria")
-                ax.grid()
-                ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
-                # rotate and align the tick labels so they look better
-                fig.autofmt_xdate()
-                fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png")
+                    # envio de gráficos por SensiTags
+                    Story.append(PageBreak())
+                    im = Image(tempDir + mac + "_Temperatura_reportAll1day.png", 20 * cm, 15 * cm)
+                    Story.append(im)
+                    # os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
 
-                # envio de gráficos por SensiTags
-                Story.append(PageBreak())
-                im = Image(tempDir + mac + "_Temperatura_reportAll1day.png", 20 * cm, 15 * cm)
-                Story.append(im)
-                #os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
+                    Story.append(PageBreak())
+                    im = Image(tempDir + str(mac) + "_Umidade_reportAll1day.png", 20 * cm, 15 * cm)
+                    Story.append(im)
+                    # os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
 
-                Story.append(PageBreak())
-                im = Image(tempDir + str(mac) + "_Umidade_reportAll1day.png", 20 * cm, 15 * cm)
-                Story.append(im)
-                #os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
+                    Story.append(PageBreak())
+                    im = Image(tempDir + str(mac) + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
+                    Story.append(im)
+                    # os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png")
 
-                Story.append(PageBreak())
-                im = Image(tempDir + str(mac) + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
-                Story.append(im)
-                #os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png")
 
-                print('fazendo!')
-                doc.build(Story)
-                bot.send_document(chat_id, open(dir, "rb"))
-                os.system("rm " + tempDir + "*.png")
-                os.system("rm " + tempDir + "*.pdf")
-            else:
-                msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
-                bot.send_message(chat_id, msgTag, parse_mode="markdown")
+                else:
+                    pass
+            print('\nmakeReportOneDayAll feito!\n')
+            doc.build(Story)
+        else:
+            print('\nNao existem TAGS!\n')
+    def sendReportOneDayAll(self, bot, chat_id, numberRegs):
+
+        pdfName = "ReportOneDayAll"
+        dir = tempDir + pdfName + ".pdf"
+        bot.send_document(chat_id, open(dir, "rb"))
 
