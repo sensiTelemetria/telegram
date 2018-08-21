@@ -135,21 +135,21 @@ class Reports:
                     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                     # rotate and align the tick labels so they look better
                     fig.autofmt_xdate()
-                    fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png")
+                    fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
 
                     # envio de gráficos por SensiTags
                     Story.append(PageBreak())
-                    im = Image(tempDir + mac + "_Temperatura_reportAll1day.png")
+                    im = Image(tempDir + mac + "_Temperatura_reportAll1day.png", 20 * cm, 15 * cm)
                     Story.append(im)
                     # os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
 
                     Story.append(PageBreak())
-                    im = Image(tempDir + str(mac) + "_Umidade_reportAll1day.png")
+                    im = Image(tempDir + str(mac) + "_Umidade_reportAll1day.png", 20 * cm, 15 * cm)
                     Story.append(im)
                     # os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
 
                     Story.append(PageBreak())
-                    im = Image(tempDir + str(mac) + "_Bateria_reportAll1day.png")
+                    im = Image(tempDir + str(mac) + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
                     Story.append(im)
                     # os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png") , 20 * cm, 15 * cm
 
