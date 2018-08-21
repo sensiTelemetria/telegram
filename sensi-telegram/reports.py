@@ -19,6 +19,46 @@ class Reports:
     def makeReportOneDayAll(self, numberRegs):
 
         print('\ncomeçandooooooo\n')
+
+        date = datetime.datetime.now()
+        pdfName = "ReportOneDayAll"
+        dir = tempDir + pdfName + ".pdf"
+        print(dir)
+        doc = SimpleDocTemplate(dir, pagesize=A4,
+                                rightMargin=72, leftMargin=72,
+                                topMargin=72, bottomMargin=18)
+        # dados sensi para pdf
+        Story = []
+        dateNow = str(date.day) + "/" + str(date.month) + "/" + str(date.year) + " - " + str(
+            date.hour) + ":" + str(date.minute)
+
+        im = Image(logoSensi, 7 * cm, 7 * cm)
+        Story.append(im)
+
+        styles = getSampleStyleSheet()
+        styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+        styles.add(ParagraphStyle(name='center', alignment=TA_CENTER))
+
+        # SENSI
+        ptext = '<font size=14>%s</font>' % nameCompany
+        Story.append(Paragraph(ptext, styles["center"]))
+        Story.append(Spacer(1, 12))
+
+        # SENSI site
+        ptext = '<font size=14>%s</font>' % site
+        Story.append(Paragraph(ptext, styles["center"]))
+        Story.append(Spacer(1, 36))
+
+        # DADOS RELATORIOS
+
+        ptext = '<font size=14>Data: %s</font>' % dateNow
+        Story.append(Paragraph(ptext, styles["Justify"]))
+        Story.append(Spacer(1, 12))
+
+        ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no període de 24 horas</font>'
+        Story.append(Paragraph(ptext, styles["Justify"]))
+        Story.append(Spacer(1, 12))
+
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
@@ -26,46 +66,6 @@ class Reports:
         query = (cursor.fetchall())
         # trata se não existir SensiTags
         if len(query) > 0:
-            date = datetime.datetime.now()
-            pdfName = "ReportOneDayAll"
-            dir = tempDir + pdfName + ".pdf"
-            print(dir)
-            doc = SimpleDocTemplate(dir, pagesize=A4,
-                                    rightMargin=72, leftMargin=72,
-                                    topMargin=72, bottomMargin=18)
-            # dados sensi para pdf
-            Story = []
-            dateNow = str(date.day) + "/" + str(date.month) + "/" + str(date.year) + " - " + str(
-                date.hour) + ":" + str(date.minute)
-
-            im = Image(logoSensi, 7 * cm, 7 * cm)
-            Story.append(im)
-
-            styles = getSampleStyleSheet()
-            styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
-            styles.add(ParagraphStyle(name='center', alignment=TA_CENTER))
-
-            # SENSI
-            ptext = '<font size=14>%s</font>' % nameCompany
-            Story.append(Paragraph(ptext, styles["center"]))
-            Story.append(Spacer(1, 12))
-
-            # SENSI site
-            ptext = '<font size=14>%s</font>' % site
-            Story.append(Paragraph(ptext, styles["center"]))
-            Story.append(Spacer(1, 36))
-
-            # DADOS RELATORIOS
-
-            ptext = '<font size=14>Data: %s</font>' % dateNow
-            Story.append(Paragraph(ptext, styles["Justify"]))
-            Story.append(Spacer(1, 12))
-
-
-            ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no període de 24 horas</font>'
-            Story.append(Paragraph(ptext, styles["Justify"]))
-            Story.append(Spacer(1, 12))
-
 
             conn = sqlite3.connect(dataBaseDjangoDir)
             cursor = conn.cursor()
@@ -156,13 +156,14 @@ class Reports:
 
                 else:
                     pass
-
-            print('\nmakeReportOneDayAll feito!\n')
-            doc.build(Story)
-            os.system("rm " + tempDir + "*.png")
-
         else:
             print('\nNao existem TAGS!\n')
+
+        print('\nmakeReportOneDayAll feito!\n')
+        doc.build(Story)
+        os.system("rm " + tempDir + "*.png")
+
+
     def sendReportOneDayAll(self, bot, chat_id):
         try:
             pdfName = "ReportOneDayAll"
