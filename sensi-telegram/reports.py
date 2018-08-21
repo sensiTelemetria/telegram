@@ -105,11 +105,11 @@ class Reports:
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, temperature)
-                    ax.xaxis.label.set_size(20)
                     ax.set(ylabel='Temperatura (ºC)',
                            title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
                     ax.grid()
-                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
+                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'), fontsize= 50)
+                    ax.xaxis.label.set_size(50)
                     # rotate and align the tick labels so they look better
                     fig.autofmt_xdate()
                     fig.savefig(tempDir + mac + "_Temperatura_reportAll1day.png")
