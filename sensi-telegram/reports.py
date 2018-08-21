@@ -157,6 +157,8 @@ class Reports:
                     pass
             print('\nmakeReportOneDayAll feito!\n')
             doc.build(Story)
+            os.system("rm " + tempDir + "*.png")
+
         else:
             print('\nNao existem TAGS!\n')
     def sendReportOneDayAll(self, bot, chat_id):
