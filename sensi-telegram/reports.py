@@ -28,7 +28,7 @@ class Reports:
         oit.append(im1)
 
 
-        pdfName = "relatorio_1dia_" + str(date.day)+"/" + str(date.month)+"/" + str(date.year)+"_" + str(date.hour) + ":" + str(date.minute)
+        pdfName = "relatorio_1dia_" + str(date.day)+"_" + str(date.month)+"_" + str(date.year)+"_" + str(date.hour) + "_" + str(date.minute)
         print(tempDir+pdfName+".pdf")
         doc = SimpleDocTemplate(tempDir+pdfName+".pdf", pagesize=A4,
                                 rightMargin=72, leftMargin=72,
@@ -164,6 +164,6 @@ class Reports:
 
         doc.build(Story)
         doc1.build(oit)
-        bot.send_document(chat_id, open(tempDir+pdfName+".pdf", "rb"))
-        bot.send_document(chat_id, open(tempDir+"oi.pdf", "rb"))
         os.system("rm " + tempDir + "*.png")
+        bot.send_document(chat_id, open(tempDir + "oi.pdf", "rb"))
+        bot.send_document(chat_id, open(tempDir+pdfName+".pdf", "rb"))
