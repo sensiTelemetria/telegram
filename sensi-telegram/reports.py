@@ -102,6 +102,8 @@ class Reports:
 
                 if len(querySensi) > 0:
                     # grfico de temperatura
+                    matplotlib.rc('xtick', labelsize=10)
+                    
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, temperature)
@@ -109,7 +111,6 @@ class Reports:
                            title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
                     ax.grid()
                     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
-                    ax.xaxis.label.set_size(50)
                     # rotate and align the tick labels so they look better
                     fig.autofmt_xdate()
                     fig.savefig(tempDir + mac + "_Temperatura_reportAll1day.png")
