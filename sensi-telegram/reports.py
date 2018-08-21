@@ -22,19 +22,9 @@ class Reports:
         pdfName = "relatorio_1dia_" + str(date.day) + "_" + str(date.month) + "_" + str(date.year) + "_" + str(date.hour) + "_" + str(date.minute)
         dir = tempDir + pdfName + ".pdf"
         print(dir)
-        doc1 = SimpleDocTemplate(dir, pagesize=A4,
+        doc = SimpleDocTemplate(dir, pagesize=A4,
                                 rightMargin=72, leftMargin=72,
                                 topMargin=72, bottomMargin=18)
-        oit = []
-        im1 = Image(logoSensi, 7 * cm, 7 * cm)
-        oit.append(im1)
-
-
-        print(tempDir+pdfName+".pdf")
-        doc = SimpleDocTemplate(tempDir+pdfName+".pdf", pagesize=A4,
-                                rightMargin=72, leftMargin=72,
-                                topMargin=72, bottomMargin=18)
-
         # dados sensi para pdf
         Story = []
 
@@ -164,7 +154,5 @@ class Reports:
                 bot.send_message(chat_id, msgTag, parse_mode="markdown")
 
         doc.build(Story)
-        doc1.build(oit)
         os.system("rm " + tempDir + "*.png")
-        bot.send_document(chat_id, open(dir, "rb"))
         bot.send_document(chat_id, open(tempDir+pdfName+".pdf", "rb"))
