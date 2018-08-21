@@ -166,17 +166,7 @@ class Reports:
     def sendReportOneDayAll(self, bot, chat_id):
         try:
             pdfName = "ReportOneDayAll"
-
-            dir2 = tempDir + pdfName + "1.pdf"
-            doc = SimpleDocTemplate(dir2, pagesize=A4,
-                                    rightMargin=72, leftMargin=72,
-                                    topMargin=72, bottomMargin=18)
-            oi = []
-            doc.build(oi)
-            pdfName = "ReportOneDayAll"
-
             dir = tempDir + pdfName + ".pdf"
-            bot.send_document(chat_id, open(dir2, "rb"))
             bot.send_document(chat_id, open(dir, "rb"))
         except FileNotFoundError:
             msg = 'Ops!\nNão achei nenhum PDF para te enviar!'
