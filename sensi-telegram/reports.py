@@ -135,7 +135,7 @@ class Reports:
                     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                     # rotate and align the tick labels so they look better
                     fig.autofmt_xdate()
-                    fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
+                    fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png")
 
                     # envio de gráficos por SensiTags
                     Story.append(PageBreak())
