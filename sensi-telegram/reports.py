@@ -27,7 +27,6 @@ class Reports:
                                 topMargin=72, bottomMargin=18)
         # dados sensi para pdf
         Story = []
-
         dateNow = str(date.day)+"/" + str(date.month)+"/" + str(date.year)+" - " + str(date.hour) + ":" + str(date.minute)
 
         im = Image(logoSensi, 7 * cm, 7 * cm)
@@ -98,6 +97,8 @@ class Reports:
 
             if len(querySensi) > 0:
 
+                print('aqui')
+
                 # grfico de temperatura
                 fig, ax = plt.subplots()
                 plt.close('all')
@@ -153,6 +154,8 @@ class Reports:
                 msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
                 bot.send_message(chat_id, msgTag, parse_mode="markdown")
 
+        print('fazendo!')
         doc.build(Story)
+        bot.send_document(chat_id, open(dir, "rb"))
         os.system("rm " + tempDir + "*.png")
-        bot.send_document(chat_id, open(tempDir+pdfName+".pdf", "rb"))
+        os.system("rm " + tempDir + "*.pdf")
