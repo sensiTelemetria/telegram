@@ -108,7 +108,7 @@ class Reports:
                     ax.set(ylabel='Temperatura (ºC)',
                            title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
                     ax.grid()
-                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'), fontsize= 50)
+                    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                     ax.xaxis.label.set_size(50)
                     # rotate and align the tick labels so they look better
                     fig.autofmt_xdate()
