@@ -105,6 +105,7 @@ class Reports:
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, temperature)
+                    ax.tick_params(axis='x', labelsize=10)
                     ax.set(ylabel='Temperatura (ºC)',
                            title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
                     ax.grid()
@@ -121,6 +122,7 @@ class Reports:
                            title="SensiTag: " + local + " - MAC: " + mac + "\nUmidade")
                     ax.grid()
                     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
+
                     # rotate and align the tick labels so they look better
                     fig.autofmt_xdate()
                     fig.savefig(tempDir + mac + "_Umidade_reportAll1day.png")
