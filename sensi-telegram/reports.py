@@ -162,8 +162,10 @@ class Reports:
         else:
             print('\nNao existem TAGS!\n')
     def sendReportOneDayAll(self, bot, chat_id):
-
-        pdfName = "ReportOneDayAll"
-        dir = tempDir + pdfName + ".pdf"
-        bot.send_document(chat_id, open(dir, "rb"))
-
+        try:
+            pdfName = "ReportOneDayAll"
+            dir = tempDir + pdfName + ".pdf"
+            bot.send_document(chat_id, open(dir, "rb"))
+        except FileNotFoundError:
+            msg = 'Ops!\nNão achei nenhum PDF para te enviar!'
+            bot.send_message(chat_id, msg, parse_mode="markdown")
