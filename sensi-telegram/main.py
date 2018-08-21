@@ -111,7 +111,7 @@ def lastReg(bot, update):
 def reportOneDay(bot, update):
     user = Auth(update.message.chat_id, bot)
     if user.authUser():
-        user.reportOneDay(bot)
+        user.reportOneDayAll(bot)
     else:
         user.unauthorized(bot)
 

@@ -23,8 +23,8 @@ logoSensi = assetsDir + "logo.png"
 siteConfig = "192.168.1.2:8000"
 
 #time out das leiturass das sensiTags
-timeout_in_sec = 280
+timeout_in_sec = 50
 
 #intervalos
-DataInterval = 300
+DataInterval = 60
 reportOneDayAllInterval = 3600

@@ -154,7 +154,7 @@ class Auth:
     def getHelp(self, bot):
         bot.send_message(self.chat_id, self.help.helpMessage(), parse_mode="markdown")
 
-    def ReportOneDayAll(self, bot):
+    def reportOneDayAll(self, bot):
         conn = sqlite3.connect(dataBaseDjangoDir)
         cursor = conn.cursor()
         cursor.execute("""SELECT * FROM tags_tag""")
