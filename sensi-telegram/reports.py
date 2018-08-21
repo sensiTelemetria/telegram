@@ -105,7 +105,7 @@ class Reports:
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, temperature)
-                    ax.tick_params(axis='x', labelsize=10)
+                    ax.xaxis.label.set_size(20)
                     ax.set(ylabel='Temperatura (ºC)',
                            title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
                     ax.grid()
@@ -168,7 +168,7 @@ class Reports:
 
     def sendReportOneDayAll(self, bot, chat_id):
         try:
-            self.makeReportOneDayAll(288)
+            #self.makeReportOneDayAll(288)
             pdfName = "ReportOneDayAll"
             dir = tempDir + pdfName + ".pdf"
             bot.send_document(chat_id, open(dir, "rb"), timeout=40)
