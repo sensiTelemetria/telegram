@@ -166,6 +166,7 @@ class Reports:
 
     def sendReportOneDayAll(self, bot, chat_id):
         try:
+            self.makeReportOneDayAll(288)
             pdfName = "ReportOneDayAll"
             dir = tempDir + pdfName + ".pdf"
             bot.send_document(chat_id, open(dir, "rb"), timeout=40)
