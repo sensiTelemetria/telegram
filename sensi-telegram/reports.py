@@ -159,7 +159,7 @@ class Reports:
             doc.build(Story)
         else:
             print('\nNao existem TAGS!\n')
-    def sendReportOneDayAll(self, bot, chat_id, numberRegs):
+    def sendReportOneDayAll(self, bot, chat_id):
 
         pdfName = "ReportOneDayAll"
         dir = tempDir + pdfName + ".pdf"

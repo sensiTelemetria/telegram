@@ -164,6 +164,6 @@ class Auth:
         if len(query) > 0:
             msgGraphics = "Ei, *" + self.name + "*!\nEstou te enviando o relatório completo de suas SensiTags dos últimos 1 dias. Lembrando que os isso pode demorar alguns minutinhos para chegar :)"
             bot.send_message(self.chat_id, msgGraphics, parse_mode="markdown")
-            self.report.sendReportOneDayAll(bot,self.name ,self.chat_id, self.email, 200)
+            self.report.sendReportOneDayAll(bot, self.chat_id)
         else:
             bot.send_message(self.chat_id, "Sensi aqui!\nParece que o seu sistema não possui SensiTags Cadastradas.", parse_mode="markdown")
