@@ -66,6 +66,10 @@ class Reports:
             Story.append(Paragraph(ptext, styles["Justify"]))
             Story.append(Spacer(1, 12))
 
+            print('\nmakeReportOneDayAll feito!\n')
+            doc.build(Story)
+            os.system("rm " + tempDir + "*.png")
+
             conn = sqlite3.connect(dataBaseDjangoDir)
             cursor = conn.cursor()
             cursor.execute("""SELECT * FROM tags_tag""")
@@ -137,27 +141,25 @@ class Reports:
                     fig.savefig(tempDir + mac + "_Bateria_reportAll1day.png")
 
                     # envio de gráficos por SensiTags
-                    Story.append(PageBreak())
+                   # Story.append(PageBreak())
                     im = Image(tempDir + mac + "_Temperatura_reportAll1day.png", 20 * cm, 15 * cm)
-                    Story.append(im)
+                    #Story.append(im)
                     # os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
 
-                    Story.append(PageBreak())
+                    #Story.append(PageBreak())
                     im = Image(tempDir + str(mac) + "_Umidade_reportAll1day.png", 20 * cm, 15 * cm)
-                    Story.append(im)
+                    #Story.append(im)
                     # os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
 
-                    Story.append(PageBreak())
+                    #Story.append(PageBreak())
                     im = Image(tempDir + str(mac) + "_Bateria_reportAll1day.png", 20 * cm, 15 * cm)
-                    Story.append(im)
+                    #Story.append(im)
                     # os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png")
 
 
                 else:
                     pass
-            print('\nmakeReportOneDayAll feito!\n')
-            doc.build(Story)
-            os.system("rm " + tempDir + "*.png")
+
 
         else:
             print('\nNao existem TAGS!\n')
@@ -172,7 +174,7 @@ class Reports:
             oi = []
             doc.build(oi)
             pdfName = "ReportOneDayAll"
-            
+
             dir = tempDir + pdfName + ".pdf"
             bot.send_document(chat_id, open(dir2, "rb"))
             bot.send_document(chat_id, open(dir, "rb"))
