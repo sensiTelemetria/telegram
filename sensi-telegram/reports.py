@@ -168,7 +168,7 @@ class Reports:
         try:
             pdfName = "ReportOneDayAll"
             dir = tempDir + pdfName + ".pdf"
-            bot.send_document(chat_id, open(dir, "rb"))
+            bot.send_document(chat_id, open(dir, "rb"), timeout=40)
         except FileNotFoundError:
             msg = 'Ops!\nNão achei nenhum PDF para te enviar!'
             bot.send_message(chat_id, msg, parse_mode="markdown")
