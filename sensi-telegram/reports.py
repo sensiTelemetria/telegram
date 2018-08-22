@@ -183,6 +183,9 @@ class Reports:
                     std = np.std(temperature)
                     std.round(decimals=2)
 
+                    maxValue = (max(temperature))
+                    minValue = (min(temperature))
+
                     ptext = '<font size=14>Média: %s</font>' % str(average)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
@@ -192,6 +195,14 @@ class Reports:
                     Story.append(Spacer(1, 12))
 
                     ptext = '<font size=14>Desvio padrão: %s</font>' % str(std)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Valor máximo: %s</font>' % str(maxValue)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Valor mínimo: %s</font>' % str(minValue)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
@@ -223,6 +234,9 @@ class Reports:
                     std = np.std(humidity)
                     std.round(decimals=2)
 
+                    maxValue = (max(humidity))
+                    minValue = (min(humidity))
+
                     ptext = '<font size=14>Média: %s</font>' % str(average)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
@@ -232,6 +246,14 @@ class Reports:
                     Story.append(Spacer(1, 12))
 
                     ptext = '<font size=14>Desvio padrão: %s</font>' % str(std)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Valor máximo: %s</font>' % str(maxValue)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Valor mínimo: %s</font>' % str(minValue)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
@@ -264,6 +286,9 @@ class Reports:
                     std = np.std(batery)
                     std.round(decimals=2)
 
+                    maxValue = (max(batery))
+                    minValue = (min(batery))
+
                     ptext = '<font size=14>Média: %s</font>' % str(average)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
@@ -273,6 +298,14 @@ class Reports:
                     Story.append(Spacer(1, 12))
 
                     ptext = '<font size=14>Desvio padrão: %s</font>' % str(std)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Valor máximo: %s</font>' % str(maxValue)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Valor mínimo: %s</font>' % str(minValue)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
