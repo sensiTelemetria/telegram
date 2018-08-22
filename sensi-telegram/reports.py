@@ -38,8 +38,9 @@ class Reports:
                                 topMargin=72, bottomMargin=18)
         # dados sensi para pdf
         Story = []
-        dateNow = str(date.day) + "/" + str(date.month) + "/" + str(date.year) + " - " + str(
-            date.hour) + "H" + str(date.minute)
+
+        dateNow = date.strftime('%d/%m/%y - %H:%M')
+        #dateNow = str(date.day) + "/" + str(date.month) + "/" + str(date.year) + " - " + str(date.hour) + "H" + str(date.minute)
 
         im = Image(logoSensi, 7 * cm, 7 * cm)
         Story.append(im)
