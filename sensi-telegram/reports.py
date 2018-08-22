@@ -133,8 +133,8 @@ class Reports:
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, humidity)
-                    ax.set(ylabel='Umidade (%)',
-                           title="SensiTag: " + local + " - MAC: " + mac + "\nUmidade")
+                    ax.set(ylabel='Umidade (%)')
+
                     ax.grid()
                     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
 
@@ -146,8 +146,7 @@ class Reports:
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, batery)
-                    ax.set(ylabel='Bateria (V)',
-                           title="SensiTag: " + local + " - MAC: " + mac + "\nBateria")
+                    ax.set(ylabel='Bateria (V)')
                     ax.grid()
                     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                     # rotate and align the tick labels so they look better
