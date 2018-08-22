@@ -203,7 +203,21 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
+                    maxTimeIndex = temperature.index(min(temperature))
+                    maxTime = time[maxTimeIndex]
+                    maxTime = maxTime.strftime('%d/%m/%y - %H:%M')
+                    ptext = '<font size=14>Valor máximo em: %s</font>' % str(maxTime)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
                     ptext = '<font size=14>Valor mínimo: %s</font>' % str(minValue)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    minTimeIndex = temperature.index(min(temperature))
+                    minTime = time[minTimeIndex]
+                    minTime = minTime.strftime('%d/%m/%y - %H:%M')
+                    ptext = '<font size=14>Valor mínimo em: %s</font>' % str(minTime)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
@@ -254,7 +268,21 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
+                    maxTimeIndex = humidity.index(min(humidity))
+                    maxTime = time[maxTimeIndex]
+                    maxTime = maxTime.strftime('%d/%m/%y - %H:%M')
+                    ptext = '<font size=14>Valor máximo em: %s</font>' % str(maxTime)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
                     ptext = '<font size=14>Valor mínimo: %s</font>' % str(minValue)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    minTimeIndex = humidity.index(min(humidity))
+                    minTime = time[minTimeIndex]
+                    minTime = minTime.strftime('%d/%m/%y - %H:%M')
+                    ptext = '<font size=14>Valor mínimo em: %s</font>' % str(minTime)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
@@ -302,9 +330,6 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
-                    ptext = '<font size=14>Valor máximo: %s</font>' % str(maxValue)
-                    Story.append(Paragraph(ptext, styles["Justify"]))
-                    Story.append(Spacer(1, 12))
 
                     ptext = '<font size=14>Valor mínimo: %s</font>' % str(minValue)
                     Story.append(Paragraph(ptext, styles["Justify"]))
@@ -317,6 +342,16 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
+                    ptext = '<font size=14>Valor máximo: %s</font>' % str(maxValue)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    maxTimeIndex = batery.index(min(batery))
+                    maxTime = time[maxTimeIndex]
+                    maxTime = maxTime.strftime('%d/%m/%y - %H:%M')
+                    ptext = '<font size=14>Valor máximo em: %s</font>' % str(maxTime)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
 
                 else:
                     msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
