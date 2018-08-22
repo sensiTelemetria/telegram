@@ -3,7 +3,7 @@ matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 import sqlite3
-from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec, tempDir, nameCompany, site, logoSensi
+from settings import dataBaseDjangoDir, dataBaseSensiDir,timeout_in_sec, tempDir, nameCompany, site, logoSensi,DataInterval
 import os
 import datetime
 import matplotlib.dates as mdates
@@ -13,6 +13,7 @@ from reportlab.lib.pagesizes import letter, A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch, cm
+import numpy as np
 
 class Reports:
 
@@ -66,7 +67,7 @@ class Reports:
         if numberDays == 3:
             ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no período de 48 horas</font>'
         if numberDays == 7:
-            ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no período de 78 horas</font>'
+            ptext = '<font size=14>Detalhe: Relatório completo de todas as SensiTags no período de 72 horas</font>'
 
         ptext = '<font size=14>%s</font>'% ptext
         Story.append(Paragraph(ptext, styles["Justify"]))
@@ -120,8 +121,7 @@ class Reports:
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, temperature)
-                    ax.set(ylabel='Temperatura (ºC)',
-                           title="SensiTag: " + local + " - MAC: " + mac + "\nTemperatura")
+                    ax.set(ylabel='Temperatura (ºC)')
                     ax.grid()
                     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y - %H:%M'))
                     # rotate and align the tick labels so they look better
@@ -155,9 +155,40 @@ class Reports:
 
                     # envio de gráficos por SensiTags
                     Story.append(PageBreak())
-                    im = Image(tempDir + mac + "_Temperatura_reportAll.png", 15 * cm, 8 * cm)
+                    im = Image(tempDir + mac + "_Temperatura_reportAll.png", 20 * cm, 15 * cm)
                     Story.append(im)
-                    # os.system("rm " + tempDir + str(mac) + "_Temperatura_reportAll1day.png")
+
+                    #dados tag
+                    ptext = '<font size=14>MAC: %s</font>' % mac
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Localização: %s</font>' % local
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    getDateTime = 'realizada a cada ' +DataInterval+ 'segundos'
+                    ptext = '<font size=14>Coleta de dados: %s</font>' % getDateTime
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    #estatisticas
+                    average =  float(sum(temperature) / float(len(temperature)))
+                    variance = np.var(temperature)
+                    std = np.std(temperature)
+
+                    ptext = '<font size=14>Média: %s</font>' % str(average)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Variância: %s</font>' % str(variance)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Desvio padrão: %s</font>' % str(std)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
 
                     Story.append(PageBreak())
                     im = Image(tempDir + str(mac) + "_Umidade_reportAll.png", 20 * cm, 15 * cm)
