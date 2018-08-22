@@ -17,6 +17,7 @@ import numpy as np
 
 class Reports:
 
+
     def makeReportAll(self, bot, chat_id, numberRegs, numberDays):
         date = datetime.datetime.now()
         pdfName = ''
@@ -309,6 +310,11 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
+                    minTime = batery.index(min(batery))
+                    ptext = '<font size=14>Valor mínimo: %s</font>' % str(minTime)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
 
                 else:
                     msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
@@ -330,7 +336,6 @@ class Reports:
 
     def sendReport3DaysAll(self, bot, chat_id):
         try:
-            print("3")
             self.makeReportAll(bot, chat_id, 864, 3)
             pdfName = "Report3DaysAll"
             dir = tempDir + pdfName + ".pdf"
@@ -341,7 +346,6 @@ class Reports:
 
     def sendReport7DaysAll(self, bot, chat_id):
         try:
-            print("7")
             self.makeReportAll(bot, chat_id, 2016, 7)
             pdfName = "Report7DaysAll"
             dir = tempDir + pdfName + ".pdf"
