@@ -158,7 +158,8 @@ class Reports:
                     im = Image(tempDir + mac + "_Temperatura_reportAll.png", 20 * cm, 15 * cm)
                     Story.append(im)
 
-                    #dados tag
+                    #dados temperatura
+                    Story.append(Spacer(1, 12))
                     ptext = '<font size=14>MAC: %s</font>' % mac
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
@@ -167,15 +168,20 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
-                    getDateTime = 'realizada a cada ' +DataInterval+ 'segundos'
+                    getDateTime = 'realizada a cada ' + str(DataInterval)+ ' segundos'
                     ptext = '<font size=14>Coleta de dados: %s</font>' % getDateTime
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
                     #estatisticas
                     average =  float(sum(temperature) / float(len(temperature)))
+                    average = round(average, 2)
+
                     variance = np.var(temperature)
+                    variance.round(decimals=2)
+
                     std = np.std(temperature)
+                    std.round(decimals=2)
 
                     ptext = '<font size=14>Média: %s</font>' % str(average)
                     Story.append(Paragraph(ptext, styles["Justify"]))
@@ -189,16 +195,86 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
-
+                    # dados Umidade
                     Story.append(PageBreak())
                     im = Image(tempDir + str(mac) + "_Umidade_reportAll.png", 20 * cm, 15 * cm)
                     Story.append(im)
-                    # os.system("rm " + tempDir + str(mac) + "_Umidade_reportAll1day.png")
+                    Story.append(Spacer(1, 12))
+                    ptext = '<font size=14>MAC: %s</font>' % mac
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
 
+                    ptext = '<font size=14>Localização: %s</font>' % local
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    getDateTime = 'realizada a cada ' + str(DataInterval) + ' segundos'
+                    ptext = '<font size=14>Coleta de dados: %s</font>' % getDateTime
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    # estatisticas
+                    average = float(sum(humidity) / float(len(humidity)))
+                    average = round(average, 2)
+
+                    variance = np.var(humidity)
+                    variance.round(decimals=2)
+
+                    std = np.std(humidity)
+                    std.round(decimals=2)
+
+                    ptext = '<font size=14>Média: %s</font>' % str(average)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Variância: %s</font>' % str(variance)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Desvio padrão: %s</font>' % str(std)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    # dados bateria
                     Story.append(PageBreak())
                     im = Image(tempDir + str(mac) + "_Bateria_reportAll.png", 20 * cm, 15 * cm)
                     Story.append(im)
-                    # os.system("rm " + tempDir + str(mac) + "_Bateria_reportAll1day.png") , 20 * cm, 15 * cm
+
+                    Story.append(Spacer(1, 12))
+                    ptext = '<font size=14>MAC: %s</font>' % mac
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Localização: %s</font>' % local
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    getDateTime = 'realizada a cada ' + str(DataInterval) + ' segundos'
+                    ptext = '<font size=14>Coleta de dados: %s</font>' % getDateTime
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    # estatisticas
+                    average = float(sum(batery) / float(len(batery)))
+                    average = round(average, 2)
+
+                    variance = np.var(batery)
+                    variance.round(decimals=2)
+
+                    std = np.std(batery)
+                    std.round(decimals=2)
+
+                    ptext = '<font size=14>Média: %s</font>' % str(average)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Variância: %s</font>' % str(variance)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
+
+                    ptext = '<font size=14>Desvio padrão: %s</font>' % str(std)
+                    Story.append(Paragraph(ptext, styles["Justify"]))
+                    Story.append(Spacer(1, 12))
 
 
                 else:
