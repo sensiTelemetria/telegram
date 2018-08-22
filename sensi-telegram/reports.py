@@ -310,8 +310,10 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
-                    minTime = batery.index(min(batery))
-                    ptext = '<font size=14>Valor mínimo: %s</font>' % str(minTime)
+                    minTimeIndex = batery.index(min(batery))
+                    minTime = time[minTimeIndex]
+                    minTime = minTime.strftime('%d/%m/%y - %H:%M')
+                    ptext = '<font size=14>Valor mínimo em: %s</font>' % str(minTime)
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
