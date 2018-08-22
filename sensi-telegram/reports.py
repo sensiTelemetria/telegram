@@ -29,7 +29,7 @@ class Reports:
             pdfName = "Report7DaysAll"
 
         dir = tempDir + pdfName + ".pdf"
-        print(dir)
+
         doc = SimpleDocTemplate(dir, pagesize=A4,
                                 rightMargin=72, leftMargin=72,
                                 topMargin=72, bottomMargin=18)
@@ -202,7 +202,7 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
-                    maxTimeIndex = temperature.index(min(temperature))
+                    maxTimeIndex = temperature.index(max(temperature))
                     maxTime = time[maxTimeIndex]
                     maxTime = maxTime.strftime('%d/%m/%y - %H:%M')
                     ptext = '<font size=14>Valor máximo em: %s</font>' % str(maxTime)
@@ -267,7 +267,7 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
-                    maxTimeIndex = humidity.index(min(humidity))
+                    maxTimeIndex = humidity.index(max(humidity))
                     maxTime = time[maxTimeIndex]
                     maxTime = maxTime.strftime('%d/%m/%y - %H:%M')
                     ptext = '<font size=14>Valor máximo em: %s</font>' % str(maxTime)
@@ -345,7 +345,7 @@ class Reports:
                     Story.append(Paragraph(ptext, styles["Justify"]))
                     Story.append(Spacer(1, 12))
 
-                    maxTimeIndex = batery.index(min(batery))
+                    maxTimeIndex = batery.index(max(batery))
                     maxTime = time[maxTimeIndex]
                     maxTime = maxTime.strftime('%d/%m/%y - %H:%M')
                     ptext = '<font size=14>Valor máximo em: %s</font>' % str(maxTime)
