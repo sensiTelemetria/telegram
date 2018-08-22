@@ -115,6 +115,20 @@ def reportOneDay(bot, update):
     else:
         user.unauthorized(bot)
 
+def report3Days(bot, update):
+    user = Auth(update.message.chat_id, bot)
+    if user.authUser():
+        user.report3DaysAll(bot)
+    else:
+        user.unauthorized(bot)
+
+def report7Days(bot, update):
+    user = Auth(update.message.chat_id, bot)
+    if user.authUser():
+        user.report7DaysAll(bot)
+    else:
+        user.unauthorized(bot)
+
 def graphicsOneDay(bot, update):
     user = Auth(update.message.chat_id, bot)
     if user.authUser():
@@ -176,6 +190,8 @@ def main():
     dp.add_handler(CommandHandler("graphicsOneWeek", graphicsOneWeek))
     dp.add_handler(CommandHandler("alarmsInfo", alarmsInfo))
     dp.add_handler(CommandHandler("reportOneDay", reportOneDay))
+    dp.add_handler(CommandHandler("report3Days", report3Days))
+    dp.add_handler(CommandHandler("report7Days", report7Days))
     dp.add_handler(CommandHandler("reboot", reboot))
 
 

@@ -16,12 +16,21 @@ from reportlab.lib.units import inch, cm
 
 class Reports:
 
-    def makeReportOneDayAll(self, bot, chat_id, numberRegs):
+    def makeReportAll(self, bot, chat_id, numberRegs, numberDays):
 
         print('\ncomeçandooooooo\n')
 
         date = datetime.datetime.now()
-        pdfName = "ReportOneDayAll"
+
+        pdfName = ''
+
+        if numberDays == 1:
+            pdfName = "ReportOneDayAll"
+        if numberDays == 3:
+            pdfName = "Report3DaysAll"
+        if numberDays == 7:
+            pdfName = "Report7DaysAll"
+
         dir = tempDir + pdfName + ".pdf"
         print(dir)
         doc = SimpleDocTemplate(dir, pagesize=A4,
@@ -168,8 +177,28 @@ class Reports:
 
     def sendReportOneDayAll(self, bot, chat_id):
         try:
-            self.makeReportOneDayAll(bot, chat_id, 288)
+            self.makeReportAll(bot, chat_id, 288, 1)
             pdfName = "ReportOneDayAll"
+            dir = tempDir + pdfName + ".pdf"
+            bot.send_document(chat_id, open(dir, "rb"), timeout=40)
+        except FileNotFoundError:
+            msg = 'Ops!\nNão achei nenhum PDF para te enviar!'
+            bot.send_message(chat_id, msg, parse_mode="markdown")
+
+    def sendReport3DaysAll(self, bot, chat_id):
+        try:
+            self.makeReportAll(bot, chat_id, 864, 3)
+            pdfName = "Report3DaysAll"
+            dir = tempDir + pdfName + ".pdf"
+            bot.send_document(chat_id, open(dir, "rb"), timeout=40)
+        except FileNotFoundError:
+            msg = 'Ops!\nNão achei nenhum PDF para te enviar!'
+            bot.send_message(chat_id, msg, parse_mode="markdown")
+
+    def sendReport7DaysAll(self, bot, chat_id):
+        try:
+            self.makeReportAll(bot, chat_id, 2016, 7)
+            pdfName = "Report7DaysAll"
             dir = tempDir + pdfName + ".pdf"
             bot.send_document(chat_id, open(dir, "rb"), timeout=40)
         except FileNotFoundError:

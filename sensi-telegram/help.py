@@ -24,6 +24,8 @@ class Help:
 
         msghelp = msghelp + "\n\n*--- RELATÓRIOS ---*"
         msghelp = msghelp + "\n\n*->* /reportOneDay -" + " Para receber o relatório completo das suas SensiTags do último dia"
+        msghelp = msghelp + "\n\n*->* /report3Days -" + " Para receber o relatório completo das suas SensiTags dos últimos 3 dias"
+        msghelp = msghelp + "\n\n*->* /report7Days -" + " Para receber o relatório completo das suas SensiTags dos últimos 7 dias"
 
         msghelp = msghelp + "\n\n*--- ALARMES ---*"
         msghelp = msghelp + "\n\n*->* /alarmsInfo -" + " Para saber mais sobre os alarmes do sistema"
