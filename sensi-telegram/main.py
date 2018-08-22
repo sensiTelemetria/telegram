@@ -155,9 +155,6 @@ def getData(bot, job):
     sensiTags = SensiTags(bot)
     sensiTags.getData()
 
-def makeReportOneDayAll(bot, job):
-    report = Reports()
-    report.makeReportOneDayAll(288)
 
 def main():
     """Start the bot."""
@@ -189,7 +186,6 @@ def main():
 
     j = updater.job_queue
     j.run_once(systemInit, 0)
-    j.run_repeating(makeReportOneDayAll, interval=reportOneDayAllInterval, first=0)
     j.run_repeating(getData, interval=DataInterval, first=0)
 
 

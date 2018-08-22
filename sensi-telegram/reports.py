@@ -16,7 +16,7 @@ from reportlab.lib.units import inch, cm
 
 class Reports:
 
-    def makeReportOneDayAll(self, numberRegs):
+    def makeReportOneDayAll(self, bot, chat_id, numberRegs):
 
         print('\ncomeçandooooooo\n')
 
@@ -103,7 +103,7 @@ class Reports:
                 if len(querySensi) > 0:
                     # grfico de temperatura
                     matplotlib.rc('xtick', labelsize=10)
-                    
+
                     fig, ax = plt.subplots()
                     plt.close('all')
                     ax.plot(time, temperature)
@@ -158,9 +158,8 @@ class Reports:
 
 
                 else:
-                    pass
-        else:
-            print('\nNao existem TAGS!\n')
+                    msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
+                    bot.send_message(chat_id, msgTag, parse_mode="markdown")
 
         print('\nmakeReportOneDayAll feito!\n')
         doc.build(Story)
@@ -169,7 +168,7 @@ class Reports:
 
     def sendReportOneDayAll(self, bot, chat_id):
         try:
-            #self.makeReportOneDayAll(288)
+            self.makeReportOneDayAll(bot, chat_id, 288)
             pdfName = "ReportOneDayAll"
             dir = tempDir + pdfName + ".pdf"
             bot.send_document(chat_id, open(dir, "rb"), timeout=40)

@@ -99,11 +99,11 @@ class Graphics:
                 #envio de gráficos por SensiTags
                 msgTag = "SensiTag: " + local + "\nMAC: " + mac
                 bot.send_message(chat_id, msgTag, parse_mode="markdown")
-                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Temperatura.png", "rb"))
+                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Temperatura.png", "rb"), timeout=40)
                 os.system("rm " + tempDir + str(mac) + "_Temperatura.png")
-                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Umidade.png", "rb"))
+                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Umidade.png", "rb"), timeout=40)
                 os.system("rm " + tempDir + str(mac) + "_Umidade.png")
-                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Bateria.png", "rb"))
+                bot.send_photo(chat_id, open(tempDir + str(mac) + "_Bateria.png", "rb"), timeout=40)
                 os.system("rm " + tempDir + str(mac) + "_Bateria.png")
             else:
                 msgTag = "Ei, não achei registros da SensiTag: *"+ local + "* com MAC: *"+mac+"*."
