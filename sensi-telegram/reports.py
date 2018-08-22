@@ -17,13 +17,8 @@ from reportlab.lib.units import inch, cm
 class Reports:
 
     def makeReportAll(self, bot, chat_id, numberRegs, numberDays):
-
-        print('\ncomeçandooooooo\n')
-
         date = datetime.datetime.now()
-
         pdfName = ''
-
         if numberDays == 1:
             pdfName = "ReportOneDayAll"
         if numberDays == 3:
@@ -179,7 +174,6 @@ class Reports:
                     msgTag = "Ei, não achei registros da SensiTag: *" + local + "* com MAC: *" + mac + "*."
                     bot.send_message(chat_id, msgTag, parse_mode="markdown")
 
-        print('\nmakeReportOneDayAll feito!\n')
         doc.build(Story)
         os.system("rm " + tempDir + "*.png")
 
@@ -196,6 +190,7 @@ class Reports:
 
     def sendReport3DaysAll(self, bot, chat_id):
         try:
+            print("3")
             self.makeReportAll(bot, chat_id, 864, 3)
             pdfName = "Report3DaysAll"
             dir = tempDir + pdfName + ".pdf"
@@ -206,6 +201,7 @@ class Reports:
 
     def sendReport7DaysAll(self, bot, chat_id):
         try:
+            print("7")
             self.makeReportAll(bot, chat_id, 2016, 7)
             pdfName = "Report7DaysAll"
             dir = tempDir + pdfName + ".pdf"
